@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const examples = [
+  {
+    label: 'Numeric trap',
+    state: 'Compare the two decimal numbers 9.11 and 9.9.',
+    question: 'Which number is larger?',
+    options: '9.11\n9.9',
+  },
+  {
+    label: 'Tool-calling (zero-shot)',
+    state: "What's the weather in Tokyo, and will it rain tomorrow?",
+    question: 'Which function should be called?',
+    options: 'stock.get_price\nweather.get_forecast\ncalendar.add_event\nNone of the above',
+  },
+  {
+    label: 'Vulnerability',
+    state: 'void copy(char *dst, const char *src) {\n    while (*src) *dst++ = *src++;\n    *dst = 0;\n}',
+    question: 'Does this function contain a security vulnerability?',
+    options: 'no\nyes',
+  },
+];
+---
+<Layout title="System One — Trial">
+  <h1>Try the model</h1>
+  <p class="sub">Give it a situation, a question, and 2–26 options. It scores each option's
+    letter-logprob and picks. Runs live on the RX&nbsp;7900&nbsp;GRE.</p>
+
+  <div class="panel">
+    <label class="fl">State / situation</label>
+    <textarea id="state" rows="4">Compare the two decimal numbers 9.11 and 9.9.</textarea>
+    <label class="fl">Question</label>
+    <input id="question" value="Which number is larger?" />
+    <label class="fl">Options (one per line)</label>
+    <textarea id="options" rows="4">9.11
+9.9</textarea>
+    <div class="row">
+      <button id="go">Decide</button>
+      <span id="status" class="sub"></span>
+    </div>
+    <div class="ex">
+      Examples:
+      {examples.map((e, i) => (
+        <button class="chip" data-ex={i}>{e.label}</button>
+      ))}
+    </div>
+  </div>
+
+  <div id="result" class="panel" style="display:none; margin-top:14px"></div>
+
+  <script define:vars={{ examples }}>
+    const $ = (id) => document.getElementById(id);
+    const stateEl = $('state'), qEl = $('question'), optsEl = $('options');
+
+    document.querySelectorAll('.chip').forEach((b) => {
+      b.addEventListener('click', () => {
+        const e = examples[Number(b.dataset.ex)];
+        stateEl.value = e.state; qEl.value = e.question; optsEl.value = e.options;
+      });
+    });
+
+    async function decide() {
+      const options = optsEl.value.split('\n').map((s) => s.trim()).filter(Boolean);
+      const status = $('status'), result = $('result');
+      if (options.length < 2) { status.textContent = 'need at least 2 options'; return; }
+      status.textContent = 'scoring\u2026'; $('go').disabled = true;
+      try {
+        const r = await fetch('/api/score', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ state: stateEl.value, question: qEl.value, options }),
+        });
+        const d = await r.json();
+        if (d.error) { status.textContent = d.error; return; }
+        status.textContent = `${d.latency_ms} ms`;
+        const order = d.probs.map((p, i) => i).sort((a, b) => d.probs[b] - d.probs[a]);
+        result.style.display = 'block';
+        result.innerHTML =
+          `<div class="pickline">Pick: <b>${d.options[d.pick]}</b> ` +
+          `<span class="dim">(${(d.probs[d.pick] * 100).toFixed(1)}%)</span></div>` +
+          order.map((i) => {
+            const pc = (d.probs[i] * 100);
+            return `<div class="opt"><span class="pct">${pc.toFixed(0)}%</span>` +
+              `<span class="track"><span class="fill${i === d.pick ? ' pick' : ''}" ` +
+              `style="width:${Math.max(2, pc)}%"></span>` +
+              `<span class="txt">${d.options[i].replace(/</g, '&lt;')}</span></span></div>`;
+          }).join('');
+      } catch (e) {
+        status.textContent = 'request failed: ' + e;
+      } finally {
+        $('go').disabled = false;
+      }
+    }
+    $('go').addEventListener('click', decide);
+  </script>
+
+  <style>
+    .fl { display: block; color: var(--dim); font-size: 13px; margin: 10px 0 4px; }
+    textarea, input {
+      width: 100%; background: var(--panel2); color: var(--ink); border: 1px solid var(--line);
+      border-radius: 8px; padding: 9px 11px; font: inherit; resize: vertical;
+    }
+    textarea { font-family: ui-monospace, monospace; font-size: 13px; }
+    .row { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+    button {
+      background: var(--accent); color: #fff; border: 0; border-radius: 8px;
+      padding: 9px 18px; font-weight: 700; cursor: pointer;
+    }
+    button:disabled { opacity: .6; cursor: default; }
+    .ex { margin-top: 12px; color: var(--dim); font-size: 13px; }
+    .chip {
+      background: var(--panel2); color: var(--dim); border: 1px solid var(--line);
+      padding: 4px 10px; margin-left: 6px; font-size: 12px; font-weight: 600;
+    }
+    .chip:hover { color: var(--ink); }
+    .pickline { font-size: 17px; margin-bottom: 10px; }
+    .dim { color: var(--dim); }
+  </style>
+</Layout>

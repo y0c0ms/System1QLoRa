@@ -1,0 +1,23 @@
+{
+ "model": "qwen3.6-35b",
+ "top_n": 100,
+ "workers": 1,
+ "skipped_gt26_options": {
+  "val": 0,
+  "test": 0
+ },
+ "test": {
+  "n": 600,
+  "failed": 0,
+  "missing_rows": 8,
+  "accuracy": 0.385,
+  "ece": 0.0959136950220623,
+  "brier": 0.6994878869850455,
+  "temperature": 6.0
+ },
+ "latency_ms": {
+  "p50": 1162.5077724456787,
+  "p90": 3413.285970687866,
+  "p99": 6293.277740478516
+ }
+}

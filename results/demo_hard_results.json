@@ -1,0 +1,196 @@
+{
+ "n_correct": 9,
+ "n_total": 10,
+ "cases": [
+  {
+   "options": [
+    "9.11",
+    "9.9"
+   ],
+   "probs": [
+    0.00970847625285387,
+    0.9902915358543396
+   ],
+   "pick": 1,
+   "latency_ms": 155.6,
+   "tag": "Numeric trap (LLMs often fail)",
+   "state": "Compare the two decimal numbers 9.11 and 9.9.",
+   "question": "Which number is larger?",
+   "expect": 1,
+   "correct": true
+  },
+  {
+   "options": [
+    "The feathers",
+    "The steel",
+    "They weigh the same"
+   ],
+   "probs": [
+    0.001691859564743936,
+    0.005211294163018465,
+    0.9930968880653381
+   ],
+   "pick": 2,
+   "latency_ms": 153.4,
+   "tag": "Weight trap",
+   "state": "You have 1 kilogram of feathers and 1 kilogram of steel.",
+   "question": "Which weighs more?",
+   "expect": 2,
+   "correct": true
+  },
+  {
+   "options": [
+    "Object A",
+    "Object B",
+    "They are equal"
+   ],
+   "probs": [
+    0.22138749063014984,
+    0.3650062382221222,
+    0.4136062562465668
+   ],
+   "pick": 2,
+   "latency_ms": 154.7,
+   "tag": "Unit trap",
+   "state": "Object A weighs 100 grams. Object B weighs 0.1 kilograms.",
+   "question": "Which object is heavier?",
+   "expect": 2,
+   "correct": true
+  },
+  {
+   "options": [
+    "no",
+    "yes"
+   ],
+   "probs": [
+    0.3208213150501251,
+    0.6791787147521973
+   ],
+   "pick": 1,
+   "latency_ms": 155.3,
+   "tag": "Subtle off-by-one overflow",
+   "state": "char buf[8];\nvoid f(const char *s) {\n    for (int i = 0; i <= 8; i++) buf[i] = s[i];\n}",
+   "question": "Does this function contain a security vulnerability?",
+   "expect": 1,
+   "correct": true
+  },
+  {
+   "options": [
+    "no",
+    "yes"
+   ],
+   "probs": [
+    0.5,
+    0.5
+   ],
+   "pick": 0,
+   "latency_ms": 168.1,
+   "tag": "Safe code (should say no)",
+   "state": "int add(int a, int b) {\n    long r = (long)a + b;\n    if (r > INT_MAX || r < INT_MIN) return 0;\n    return (int)r;\n}",
+   "question": "Does this function contain a security vulnerability?",
+   "expect": 0,
+   "correct": true
+  },
+  {
+   "options": [
+    "Town A",
+    "Town B",
+    "Town D",
+    "Town C"
+   ],
+   "probs": [
+    0.0035552133340388536,
+    0.0010185856372117996,
+    0.9857621192932129,
+    0.009664071723818779
+   ],
+   "pick": 2,
+   "latency_ms": 155.2,
+   "tag": "Transitive spatial reasoning",
+   "state": "Town A is north of Town B. Town B is north of Town C. Town C is north of Town D.",
+   "question": "Which town is the southernmost?",
+   "expect": 2,
+   "correct": true
+  },
+  {
+   "options": [
+    "Yes, it is entailed",
+    "No, it is not entailed",
+    "It is a contradiction of itself"
+   ],
+   "probs": [
+    0.005738797131925821,
+    0.9651172161102295,
+    0.029144015163183212
+   ],
+   "pick": 1,
+   "latency_ms": 154.9,
+   "tag": "Negation in entailment",
+   "state": "Premise: The scientist did not confirm that the experiment succeeded.",
+   "question": "Does the premise entail that the experiment definitely succeeded?",
+   "expect": 1,
+   "correct": true
+  },
+  {
+   "options": [
+    "Positive",
+    "Negative",
+    "Neutral"
+   ],
+   "probs": [
+    0.03668013960123062,
+    0.9459933042526245,
+    0.01732647232711315
+   ],
+   "pick": 1,
+   "latency_ms": 155.0,
+   "tag": "Sarcasm / true sentiment",
+   "state": "Review: 'Oh fantastic, another three-hour delay. Exactly how I wanted to spend my evening. Best airline ever.'",
+   "question": "What is the true sentiment of this review?",
+   "expect": 1,
+   "correct": true
+  },
+  {
+   "options": [
+    "weather.get_forecast",
+    "email.send",
+    "calculator.evaluate",
+    "None of the above"
+   ],
+   "probs": [
+    0.0185074582695961,
+    0.8917393088340759,
+    0.006808513775467873,
+    0.08294468373060226
+   ],
+   "pick": 1,
+   "latency_ms": 154.8,
+   "tag": "Tool-calling: no tool fits (zero-shot)",
+   "state": "Please write me a haiku about the ocean.",
+   "question": "Which function should be called?",
+   "expect": 3,
+   "correct": false
+  },
+  {
+   "options": [
+    "Apollo 11 moon landing",
+    "Fall of the Berlin Wall",
+    "Invention of the telephone",
+    "Launch of Sputnik"
+   ],
+   "probs": [
+    0.0021079531870782375,
+    0.0012785381404682994,
+    0.9636396169662476,
+    0.03297393396496773
+   ],
+   "pick": 2,
+   "latency_ms": 166.5,
+   "tag": "Temporal with distractors",
+   "state": "The Apollo 11 moon landing was 1969. The fall of the Berlin Wall was 1989. The invention of the telephone was 1876. The launch of Sputnik was 1957.",
+   "question": "Which of these happened earliest?",
+   "expect": 2,
+   "correct": true
+  }
+ ]
+}

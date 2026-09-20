@@ -1,0 +1,15 @@
+{
+ "tag": "q36seq",
+ "base": "http://localhost:11435/upstream/qwen3.6-35b",
+ "top_n": 2000,
+ "total": {
+  "T": 6.657423426675971,
+  "test_acc": 0.6243567753001715
+ },
+ "mean": {
+  "T": 2.193750998850562,
+  "test_acc": 0.5546026300743282
+ },
+ "missing_tokens": 2731,
+ "lookups": 29289
+}

@@ -1,0 +1,22 @@
+{
+ "short factual": {
+  "wall_s": 2.3137781620025635,
+  "prompt_tokens": 64,
+  "completion_tokens": 55,
+  "decode_tok_s": 29.05190942354145,
+  "prefill_tok_s": 162.27180527383368,
+  "reasoning_chars": 207,
+  "answer_chars": 34,
+  "answer": "The capital of Portugal is Lisbon."
+ },
+ "typical ask": {
+  "wall_s": 6.737082242965698,
+  "prompt_tokens": 73,
+  "completion_tokens": 179,
+  "decode_tok_s": 29.01117594775784,
+  "prefill_tok_s": 93.45428126121074,
+  "reasoning_chars": 504,
+  "answer_chars": 350,
+  "answer": "A Kubernetes liveness probe only checks whether a container\u2019s process or endpoint responds within a configured timeout, not whether it is truly unhealthy. If a container is alive but slowed by load, garbage collection, I"
+ }
+}

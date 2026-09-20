@@ -1,0 +1,74 @@
+{
+ "base": "Qwen/Qwen3-4B-Instruct-2507",
+ "adapter": "results/jevlike4b_lora",
+ "datasets": {
+  "reflex": {
+   "T": 1.2000000000000004,
+   "n_test": 600,
+   "skipped_gt26": 0,
+   "acc_all": 0.58,
+   "acc_by_task": {
+    "code_defect": 0.545,
+    "math_level": 0.41,
+    "math_topic": 0.785
+   }
+  },
+  "bfcl": {
+   "T": 0.7000000000000001,
+   "n_test": 399,
+   "skipped_gt26": 1,
+   "acc_all": 0.9373433583959899,
+   "acc_by_task": {
+    "bfcl_v3_live_multi": 0.9313186813186813,
+    "bfcl_v3_multi": 1.0
+   }
+  },
+  "sni": {
+   "T": 1.950000000000001,
+   "n_test": 1950,
+   "skipped_gt26": 0,
+   "acc_all": 0.6723076923076923,
+   "acc_by_task": {
+    "task020_mctaco_span_based_question": 0.6,
+    "task050_multirc_answerability": 0.76,
+    "task1155_bard_analogical_reasoning_trash_or_treasure": 0.78,
+    "task133_winowhy_reason_plausibility_detection": 0.52,
+    "task1344_glue_entailment_classification": 0.72,
+    "task1388_cb_entailment": 0.84,
+    "task1390_wscfixed_coreference": 0.5,
+    "task1439_doqa_cooking_isanswerable": 0.66,
+    "task1442_doqa_movies_isanswerable": 0.68,
+    "task1529_scitail1.1_classification": 0.82,
+    "task1554_scitail_classification": 0.74,
+    "task1624_disfl_qa_question_yesno_classification": 0.54,
+    "task1640_aqa1.0_answerable_unanswerable_question_classification": 0.76,
+    "task190_snli_classification": 0.44,
+    "task199_mnli_classification": 0.48,
+    "task200_mnli_entailment_classification": 0.88,
+    "task201_mnli_neutral_classification": 0.14,
+    "task202_mnli_contradiction_classification": 0.94,
+    "task226_english_language_answer_relevance_classification": 0.6,
+    "task232_iirc_link_number_classification": 0.74,
+    "task233_iirc_link_exists_classification": 0.28,
+    "task242_tweetqa_classification": 0.98,
+    "task290_tellmewhy_question_answerability": 0.78,
+    "task349_squad2.0_answerable_unanswerable_question_classification": 0.8,
+    "task391_causal_relationship": 0.68,
+    "task392_inverse_causal_relationship": 0.66,
+    "task520_aquamuse_answer_given_in_passage": 0.88,
+    "task640_esnli_classification": 0.5,
+    "task641_esnli_classification": 0.56,
+    "task642_esnli_classification": 0.32,
+    "task738_perspectrum_classification": 0.92,
+    "task828_copa_commonsense_cause_effect": 0.76,
+    "task879_schema_guided_dstc8_classification": 0.74,
+    "task880_schema_guided_dstc8_classification": 0.56,
+    "task890_gcwd_classification": 0.66,
+    "task935_defeasible_nli_atomic_classification": 0.8,
+    "task936_defeasible_nli_snli_classification": 0.82,
+    "task937_defeasible_nli_social_classification": 0.66,
+    "task970_sherliic_causal_relationship": 0.72
+   }
+  }
+ }
+}

@@ -1,0 +1,9 @@
+# Python deps for building benchmarks, training, and scoring.
+# Training/eval additionally need a GPU torch build (CUDA or ROCm); see README.
+transformers>=4.44
+peft>=0.11
+datasets>=2.20
+accelerate>=0.33
+bitsandbytes>=0.44   # 4-bit QLoRA; on AMD use a ROCm build (this project used 0.50.2)
+torch>=2.3           # install the CUDA or ROCm wheel that matches your GPU
+numpy

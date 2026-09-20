@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { benchmarks, reflexPerTask, hardResults, model } from '../lib/data.ts';
+const pct = (x: number | null) => (x == null ? '\u2014' : (x * 100).toFixed(1) + '%');
+---
+<Layout title="System One — Results">
+  <h1>An open decision model that beats bigger prompted ones</h1>
+  <p class="sub">{model.base} · {model.method} · trained on {model.corpus} · {model.hardware}.
+     Every number below is calibrated test accuracy, scored by option letter-logprob.</p>
+
+  <div class="cards">
+    {benchmarks.map((b) => (
+      <div class="card">
+        <div class="lbl">{b.name}</div>
+        <div class="big">{pct(b.ours4b)}</div>
+        <div class="cmp">
+          {b.prompted35b != null ? `vs 35B ${pct(b.prompted35b)}` : `vs prior open ${pct(b.priorOpen)}`}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <h2>Head-to-head</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Benchmark</th><th class="num">n</th><th>floor</th>
+        <th class="num">prior open</th><th class="num">35B prompted</th>
+        <th class="num">270M trained</th><th class="num">4B (ours)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {benchmarks.map((b) => (
+        <tr>
+          <td>{b.name}<div class="sub" style="font-size:12px">{b.note}</div></td>
+          <td class="num">{b.n}</td>
+          <td>{b.floor}</td>
+          <td class="num">{pct(b.priorOpen)}</td>
+          <td class="num">{pct(b.prompted35b)}</td>
+          <td class="num">{pct(b.trained270m)}</td>
+          <td class="num win">{pct(b.ours4b)}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>reflex, per task</h2>
+  <table>
+    <thead>
+      <tr><th>Task</th><th class="num">35B prompted</th><th class="num">270M trained</th><th class="num">4B (ours)</th></tr>
+    </thead>
+    <tbody>
+      {reflexPerTask.map((r) => (
+        <tr>
+          <td class="mono">{r.task}</td>
+          <td class="num">{pct(r.b35)}</td>
+          <td class="num">{pct(r.m270)}</td>
+          <td class={'num ' + (r.b4 >= r.b35 && r.b4 >= r.m270 ? 'win' : '')}>{pct(r.b4)}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>
+    Hard / adversarial trials
+    {hardResults && <span class="sub" style="font-weight:400"> — {hardResults.n_correct}/{hardResults.n_total} correct</span>}
+  </h2>
+  <p class="sub">Traps that fool large models, novel out-of-domain decisions, and the model's own weak spots. Live model output.</p>
+  {hardResults?.cases.map((c) => {
+    const order = c.probs.map((p, i) => i).sort((a, b) => c.probs[b] - c.probs[a]);
+    return (
+      <div class="hard">
+        <div class="top">
+          <span class="tag">{c.tag}</span>
+          <span class={'badge ' + (c.correct ? 'ok' : 'miss')}>{c.correct ? 'correct' : 'miss'}</span>
+        </div>
+        <div class="state">{c.state}</div>
+        <div class="q">{c.question}</div>
+        {order.map((i) => (
+          <div class="opt">
+            <span class="pct">{(c.probs[i] * 100).toFixed(0)}%</span>
+            <span class="track">
+              <span class={'fill' + (i === c.pick ? ' pick' : '')} style={`width:${Math.max(2, c.probs[i] * 100)}%`}></span>
+              <span class="txt">{c.options[i]}{i === c.expect ? '  \u2713' : ''}</span>
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  })}
+</Layout>

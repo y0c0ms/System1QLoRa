@@ -1,0 +1,80 @@
+---
+interface Props { title: string; }
+const { title } = Astro.props;
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <div class="brand">System&nbsp;One <span>· open decision model</span></div>
+      <nav>
+        <a href="/" class={path === '/' ? 'active' : ''}>Results</a>
+        <a href="/trial" class={path === '/trial' ? 'active' : ''}>Trial</a>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer>Qwen3-4B QLoRA · trained on RX&nbsp;7900&nbsp;GRE · scores option letter-logprobs</footer>
+    <style is:global>
+      :root {
+        --bg: #0b0f17; --panel: #131a26; --panel2: #0f1520; --line: #223047;
+        --ink: #e6edf6; --dim: #8aa0bd; --accent: #4ea1ff; --good: #35d07f; --bad: #ff5c72;
+        --bar: #2b3a54;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; background: var(--bg); color: var(--ink);
+        font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      }
+      header {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 14px 26px; border-bottom: 1px solid var(--line);
+        background: linear-gradient(180deg, #101725, #0b0f17); position: sticky; top: 0; z-index: 5;
+      }
+      .brand { font-weight: 700; letter-spacing: .3px; }
+      .brand span { color: var(--dim); font-weight: 400; font-size: 13px; }
+      nav a {
+        color: var(--dim); text-decoration: none; margin-left: 18px; padding: 6px 12px;
+        border-radius: 8px; font-weight: 600;
+      }
+      nav a:hover { color: var(--ink); background: var(--panel); }
+      nav a.active { color: #fff; background: var(--accent); }
+      main { max-width: 980px; margin: 0 auto; padding: 30px 26px 60px; }
+      footer { text-align: center; color: var(--dim); font-size: 12px; padding: 26px; border-top: 1px solid var(--line); }
+      h1 { font-size: 26px; margin: 0 0 6px; }
+      h2 { font-size: 18px; margin: 34px 0 12px; color: #cfe0f5; }
+      .sub { color: var(--dim); margin: 0 0 8px; }
+      table { width: 100%; border-collapse: collapse; margin: 8px 0 4px; }
+      th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--dim); font-weight: 600; font-size: 13px; }
+      td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+      .win { color: var(--good); font-weight: 700; }
+      .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+      .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 10px 0; }
+      .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+      .card .big { font-size: 30px; font-weight: 800; color: #fff; }
+      .card .lbl { color: var(--dim); font-size: 13px; }
+      .card .cmp { font-size: 12px; color: var(--good); margin-top: 4px; }
+      .hard { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin: 10px 0; background: var(--panel2); }
+      .hard .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+      .tag { font-weight: 700; }
+      .badge { font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 20px; }
+      .badge.ok { background: rgba(53,208,127,.15); color: var(--good); }
+      .badge.miss { background: rgba(255,92,114,.15); color: var(--bad); }
+      .state { color: var(--dim); font-size: 13px; white-space: pre-wrap; margin: 6px 0; font-family: ui-monospace, monospace; }
+      .q { margin: 4px 0 8px; }
+      .opt { display: grid; grid-template-columns: 46px 1fr; gap: 10px; align-items: center; margin: 3px 0; }
+      .opt .pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--dim); font-size: 13px; }
+      .track { background: var(--bar); border-radius: 6px; height: 20px; position: relative; overflow: hidden; }
+      .fill { height: 100%; background: linear-gradient(90deg, #2b6fd6, #4ea1ff); border-radius: 6px; }
+      .fill.pick { background: linear-gradient(90deg, #1f8f57, #35d07f); }
+      .opt .txt { position: absolute; left: 10px; top: 0; line-height: 20px; font-size: 13px; color: #eaf2ff; white-space: nowrap; }
+      code, .mono { font-family: ui-monospace, SFMono-Regular, monospace; }
+    </style>
+  </body>
+</html>

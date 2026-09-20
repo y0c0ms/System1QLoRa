@@ -1,0 +1,22 @@
+{
+ "short factual": {
+  "wall_s": 21.33338236808777,
+  "prompt_tokens": 24,
+  "completion_tokens": 8,
+  "decode_tok_s": 27.1961762176238,
+  "prefill_tok_s": 18.610508423581372,
+  "reasoning_chars": 0,
+  "answer_chars": 34,
+  "answer": "The capital of Portugal is Lisbon."
+ },
+ "typical ask": {
+  "wall_s": 4.5307323932647705,
+  "prompt_tokens": 33,
+  "completion_tokens": 120,
+  "decode_tok_s": 31.22253392718593,
+  "prefill_tok_s": 57.883667860005716,
+  "reasoning_chars": 0,
+  "answer_chars": 652,
+  "answer": "A Kubernetes liveness probe restarts a healthy-but-slow container because it relies strictly on binary success or failure criteria (such as HTTP 200 or TCP connection) rather than assessing the application\u2019s overall heal"
+ }
+}

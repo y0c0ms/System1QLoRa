@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>system-one-bench — process diagrams</title>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'base', securityLevel: 'loose',
+    themeVariables: { fontFamily: 'system-ui, sans-serif' } });
+</script>
+<style>
+  body { max-width: 960px; margin: 2rem auto; padding: 0 1rem;
+         font-family: system-ui, sans-serif; color: #1f2328; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.15rem; margin-top: 2.5rem;
+       border-bottom: 1px solid #d1d9e0; padding-bottom: .25rem; }
+  p.lede { color: #57606a; font-size: .95rem; }
+  .cap { color: #57606a; font-size: .85rem; margin-top: .5rem; }
+  .diagram { margin: 1rem 0 0; display: flex; justify-content: center; }
+  .diagram svg { max-width: 100%; height: auto; }
+  code { background: #eff2f5; padding: .1rem .3rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+  <h1>system-one-bench — process diagrams</h1>
+  <p class="lede">The System One scoring architecture, the two measurement arms, and the
+  SNI held-out-predicate split. Diagram source is in <code>README.md</code> (Mermaid, rendered
+  natively on Forgejo/GitHub); this page renders the same diagrams client-side.</p>
+
+  <h2>How the benchmark compares two ways of scoring an option set</h2>
+  <div class="diagram">
+<pre class="mermaid">
+flowchart TB
+    subgraph DATA["Data"]
+        D1["Upstream corpus<br/>(banking77, mmlu, tickets...)"]
+        D2["SNI generality benchmark<br/>(held-out predicates)"]
+    end
+    subgraph A["Arm A — trained scorer (270M)"]
+        A1["Gemma 3 270M base<br/>(frozen)"]
+        A2["LoRA adapter<br/>+ score head"]
+        A3["CPU fine-tune<br/>temperature fitted on val"]
+    end
+    subgraph B["Arm B — zero-training teacher"]
+        B1["llama.cpp<br/>(Qwen 3.6 / 3.8)"]
+        B2["logprob / sequence scoring<br/>per option"]
+    end
+    EVAL["softmax over each option set<br/>accuracy · ECE · Brier · latency"]
+    D1 --> A
+    D1 --> B
+    D2 --> A
+    A --> EVAL
+    B --> EVAL
+</pre>
+  </div>
+  <p class="cap">The 270M scorer is trained; the llama.cpp arm is not — it scores options already
+  resident on the GPU. Both are measured on the <em>same rows</em> so the comparison is clean.</p>
+
+  <h2>One decision — runtime-defined semantics</h2>
+  <div class="diagram">
+<pre class="mermaid">
+flowchart LR
+    Q["question<br/>(runtime)"]
+    S["state<br/>(runtime)"]
+    O["options 1..k<br/>(runtime)"]
+    ENC["encode state + question + option<br/>option i → sequence i"]
+    M["Gemma 3 270M encoder<br/>(frozen)"]
+    H["scoring head<br/>(LoRA)"]
+    P["softmax over k options"]
+    T["temperature"]
+    R["probs + argmax<br/>ECE · Brier"]
+    Q --> ENC
+    S --> ENC
+    O --> ENC
+    ENC --> M --> H --> P
+    P --> T --> R
+</pre>
+  </div>
+  <p class="cap"><code>state</code>, <code>question</code> and <code>options</code> all arrive at
+  scoring time. The head emits one score per (question, state, option) sequence; softmax over the
+  request's own option set yields a calibrated distribution.</p>
+
+  <h2>Where generalisation is actually measured</h2>
+  <div class="diagram">
+<pre class="mermaid">
+flowchart TB
+    SNI["allenai/natural-instructions<br/>875 tasks"]
+    SPLIT{{"official split<br/>category-disjoint"}}
+    TR["train<br/>756 tasks / 60 categories"]
+    TE["test<br/>119 tasks / 12 categories"]
+    F{{"filter<br/>≤5 labels, drop input-pointer + CC BY-NC"}}
+    V["val<br/>120 tasks / 4,800 rows<br/>(5 train categories)"]
+    FTL["LoRA train row-set<br/>111 tasks / 16,185 rows"]
+    T["test<br/>39 tasks / 6 categories / 7,696 rows"]
+    SNI --> SPLIT
+    SPLIT --> TR --> V & FTL
+    SPLIT --> TE --> F --> T
+    INT["train ∩ test categories = ∅<br/>val carved from train by category"]
+    INT -.-> TR
+</pre>
+  </div>
+  <p class="cap">The shipped corpus shares all 36 question strings between train and test; the SNI
+  split does not. LoRA trains on 111 tasks whose categories are disjoint from the 39 test
+  predicates — the first number that can separate generalisation from memorisation.</p>
+
+  <h2>The training run behind the scorer</h2>
+  <div class="diagram">
+<pre class="mermaid">
+flowchart LR
+    J[("data/sni<br/>JSON rows")]
+    D[("DatasetDict<br/>(Arrow)")]
+    B["bucket rows<br/>by option count"]
+    E["encode state + question<br/>+ each option"]
+    L["LoRA fit on CPU<br/>checkpointed (--save-every)"]
+    V["val eval → fit temperature"]
+    T2["test eval (39 unseen predicates)<br/>T from val"]
+    M[("metrics.json<br/>acc · ECE · Brier")]
+    J --> D --> B --> E --> L --> V --> T2 --> M
+    V -.->|"T"| T2
+</pre>
+  </div>
+  <p class="cap">Every run is single-threaded on CPU at the documented memory constraint
+  (batch 4, max_len 128 — see <code>docs/FINDINGS.md</code>), with the LoRA adapter checkpointed
+  and resumable.</p>
+</body>
+</html>

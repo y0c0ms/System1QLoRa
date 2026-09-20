@@ -1,0 +1,15 @@
+{
+ "tag": "smoke36",
+ "base": "http://localhost:11435/upstream/qwen3.6-35b",
+ "top_n": 2000,
+ "total": {
+  "T": 2.193750998850562,
+  "test_acc": 0.4444444444444444
+ },
+ "mean": {
+  "T": 1.6621017986159936,
+  "test_acc": 0.2222222222222222
+ },
+ "missing_tokens": 155,
+ "lookups": 1097
+}

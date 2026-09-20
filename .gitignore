@@ -1,0 +1,21 @@
+# Derived data — regenerate from public sources with harness/build_*.py
+data/
+.hf_cache/
+upstream/
+
+# Large / derived training artifacts (keep small result JSONs)
+results/*.npy
+results/ckpt_*.jsonl
+results/*_lora/
+results/*.log
+*.safetensors
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node / Astro
+web/node_modules/
+web/dist/
+web/.astro/
