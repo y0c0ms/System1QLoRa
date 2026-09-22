@@ -24,7 +24,8 @@ Held-out test accuracy / ECE, vs frozen **Jev 1.13**:
 | abstention (none-fits) | **0.960** / .019 | **0.924** / .035 | 0.740 |
 
 Latency ~53 ms (0.6B) / ~165 ms (4B) per answer — 20× / 6.5× faster than Jev. We beat Jev on
-reflex and abstention, and closed most of the SNI gap once we found it was a **format** mismatch:
+abstention (0.960 vs 0.740, n=396 — far outside noise); on reflex we are level with Jev (0.553–0.558
+vs 0.543 is within noise, z≈0.35), not ahead. We closed most of the SNI gap once we found it was a **format** mismatch:
 the held-out NLI tasks are "pick which of 3 candidates is neutral", not single-pair label
 classification. Rebuilding NLI in that select-of-3 format (`harness/build_nli_select.py`) lifted
 `mnli_neutral` 0.16 → 0.88 on the 0.6B. See `docs/FINDINGS.md`.
