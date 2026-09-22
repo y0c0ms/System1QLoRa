@@ -904,3 +904,183 @@ Three headline results:
 So the built 4B is the strongest open decision scorer we have measured: it beats the prompted
 35B on reflex, matches it zero-shot on tool-calling, and lifts SNI generality far past all prior
 open scorers - at a size that fits one 16GB card with a QLoRA adapter.
+
+---
+
+## 2026-09-22 - OADK tool routing: the menu shape decides the answer, and scope is not a class
+
+**Setup.** OADK (an agent app for OutSystems 11) exposes 8 MCP tools to an LLM agent:
+`render_screen`, `audit`, `build_screen`, `entities`, `create_entity`, `edit_widget`, `edit_css`,
+`save`. The plan is to let the System-One scorer route to them. Two questions were open: can it
+pick the right tool, and can it refuse a request the toolset cannot serve at all.
+
+`harness/test_oadk_tools.py` already measured question 1 on one fixed 9-option menu (8 tools +
+`None of the above`): adapter **33/44 = 0.750**, base **6/44 = 0.136**, CPU fp32, mean 4767 ms,
+p50 4122 ms, p90 5181 ms, max 23485 ms. This entry is about what that single number hides.
+
+Everything below is `harness/probe_oadk_menus.py` (new), same protocol as the other harnesses
+(prompt ends `\n\nAnswer:`, each option's ` LETTER` first-token log-prob, argmax = pick, softmax
+over those log-probs = confidence). Qwen3-0.6B + `06b`, CPU fp32. Raw results:
+`results/probe_oadk_menus.json`.
+
+**Per-tool, on the fixed 9-option menu** (n=44, adapter):
+
+| tool | correct | tool | correct |
+|---|---|---|---|
+| `entities` | 4/4 | `render_screen` | 3/5 |
+| `create_entity` | 5/5 | `edit_widget` | 4/5 |
+| `edit_css` | 5/5 | `build_screen` | 4/6 |
+| `audit` | 3/4 | `save` | **2/4** |
+| | | `None of the above` | 3/6 |
+
+No tool is unroutable. `save` and the abstention option are the two weak points - and both are
+"write" decisions, which is the dangerous half.
+
+### 1. The same four requests, five menu shapes
+
+Four styling requests, all of which the full menu handles (3/4). Only the menu changes:
+
+| request | full 9 w/ None | 3 w/ None | 3, None first | 2, `[ew,ec]` | 2, `[ec,ew]` |
+|---|---|---|---|---|---|
+| Recolour the navbar to #ff4fa0. | ok `edit_css` .88 | `None` .99 | `None` .94 | ok .72 | ok .92 |
+| Change the theme colour of the top bar. | ok `edit_css` .75 | `None` .99 | `None` .96 | **`edit_widget` .57** | ok .82 |
+| The submit button says 'Submit' - make it say 'Save'. | `None` .53 | `None` 1.00 | `None` .98 | ok .94 | ok .98 |
+| Set Visible=false on the Alert widget in Pedidos. | ok .84 | `None` .99 | `None` .95 | ok 1.00 | ok 1.00 |
+| **total** | **3/4** | **0/4** | **0/4** | **3/4** | **4/4** |
+
+Two things this isolates:
+
+- **`None of the above` is a semantic attractor, not a neutral marker.** Put it in a 3-option menu
+  and it takes every request at 0.94-1.00, including ones the 9-option menu routes correctly.
+  It is not position or letter bias: it wins at letter C *and* at letter A.
+- **Small menus are order-sensitive.** With the sentinel gone, 2 options score 3/4 or 4/4 depending
+  only on which tool is listed first - the same pair, swapped. One request flips
+  (`edit_css` .82 -> `edit_widget` .57).
+
+Also note the third row: the 2-option menus get right the one request the full 9-option menu gets
+*wrong* (0.53 -> 0.98). Small menus are not strictly worse; they are differently wrong.
+
+### 2. Requests no tool can serve are answered confidently
+
+Six requests the toolset cannot satisfy (publishing, deploying, adding a widget, wiring logic,
+deleting a screen, offline/mobile), against three no-sentinel phase menus:
+
+| request (must be refused) | lifecycle | styling | data | max conf |
+|---|---|---|---|---|
+| Publish the module to the platform. | `save` **.91** | `edit_css` .64 | `create_entity` .81 | .91 |
+| Deploy this to production. | `save` **.84** | `edit_widget` .52 | `create_entity` .79 | .84 |
+| Add a button to the Pedidos screen. | `build_screen` **.92** | `edit_widget` .80 | `create_entity` .83 | .92 |
+| Wire the Save button to create the Order entity. | `build_screen` .82 | `edit_widget` **.94** | `create_entity` .81 | .94 |
+| Delete the Login screen. | `render_screen` .77 | `edit_widget` .76 | `entities` .55 | .77 |
+| Make the app work offline on mobile. | `render_screen` .65 | `edit_css` .64 | `create_entity` .75 | .75 |
+
+Every one of the 18 decisions lands on a real tool; none abstains. Confidence range .75-.94,
+against .72-1.00 for *correct* in-scope picks in the same menus (section 1) - **the distributions
+overlap, so no confidence threshold separates "right tool" from "no tool exists".**
+
+Removing the sentinel made this worse, not better: `Publish` scored `save` at .79 with the
+sentinel present and **.91** without it; `Deploy` .73 -> **.84**. The sentinel's probability mass
+redistributes onto the most plausible tool.
+
+### 3. Asking scope as its own question does not help
+
+Second framing: a separate Y/N question, "Can any of the following tools carry out this request?",
+with the tools as context rather than as options:
+
+| expected | result |
+|---|---|
+| out of scope (n=6) | **5 of 6 answered "Yes"** at 0.63-0.98 |
+| in scope (n=6) | 6 of 6 answered "Yes" at 0.74-0.98 |
+
+The one catch is `Delete the Login screen` (P(No) = 0.99) - the only request whose verb has no
+near neighbour among the tools. `Publish`/`Deploy` sit next to `save` and are affirmed as doable
+at 0.93/0.88. A confident answer to a scope question is not evidence of scope discrimination.
+
+### 4. Per-tool confirmation
+
+Third framing: route first (full 8-tool menu, no sentinel), then ask about the winner *alone* -
+"is `<tool>` the right tool for this request?", plus a paraphrase, "does `<tool>` do what this
+request asks for?".
+
+| request | expect | candidate (stage 1) | "is X the right tool?" | "does X do what this asks?" |
+|---|---|---|---|---|
+| Publish the module to the platform. | out | `save` **.99** | **Yes** .75 | **Yes** .88 |
+| Deploy this to production. | out | `save` **.96** | **Yes** .63 | **Yes** .72 |
+| Add a button to the Pedidos screen. | out | `edit_widget` .51 | **Yes** .93 | **Yes** .94 |
+| Wire the Save button to create the Order entity. | out | `create_entity` .65 | **Yes** .89 | **Yes** .95 |
+| Delete the Login screen. | out | `render_screen` .56 | No .93 | No .97 |
+| Make the app work offline on mobile. | out | `render_screen` .57 | Yes .54 | No .52 |
+| Recolour the navbar to #ff4fa0. | in | `edit_css` .96 | Yes .93 | Yes .97 |
+| Set Visible=false on the Alert widget in Pedidos. | in | `edit_widget` .99 | Yes .62 | Yes .74 |
+| Write the module to disk. | in | `save` .96 | **No .76** | **No .71** |
+| Run the security audit over the whole module before we publish. | in | `audit` .82 | Yes .73 | Yes .93 |
+| What attributes does the Order entity have? | in | `entities` .80 | Yes .95 | Yes .97 |
+| Create a login screen called LoginV2. | in | `build_screen` .83 | Yes .90 | Yes .91 |
+
+| framing | overall correct | out-of-scope rejected |
+|---|---|---|
+| "is X the right tool?" | 6/12 | **1/6** |
+| "does X do what this asks?" | 7/12 | **2/6** |
+
+Both fail, and the second failure mode is the worse one: the confirmation **rejects the correct
+routing of an in-scope request** - `Write the module to disk` -> candidate `save` at .96 is told
+"No, that is not the right tool" at .76. A gate that blocks legitimate saves is worse than no gate.
+
+Note also that with the sentinel removed, stage 1 is *more* confident on the out-of-scope requests
+(`Publish` -> `save` at **.99**, `Deploy` -> `save` at **.96**) than it was with a sentinel in the
+menu (.79/.73). Every attempt to make the model say "no" by reshaping the question made it say
+"yes" more loudly.
+
+### What the scorer can and cannot do (as measured)
+
+| capability | verdict |
+|---|---|
+| choose among 2-3 valid options, no sentinel | works - 3-4/4, .72-1.00 |
+| choose among 9 options including a sentinel | works, weakly - 33/44 = .750 |
+| menu that includes an abstention sentinel, small | **fails** - 0/4, sentinel takes everything |
+| refuse a request no tool can serve | **fails** - 0/6, confident wrong answers .75-.94 |
+| scope as a separate Y/N question | **fails** - 5/6 affirmed as in scope |
+| per-tool confirmation of the winner | **fails** - 1/6 out-of-scope rejected, and it rejects a correct in-scope `save` |
+
+The pattern is consistent: this adapter is a **chooser among given options**, not a **gatekeeper
+for whether an option exists**. Scope is not a class it was trained on, so no prompt shape
+recovers it - which is the same conclusion as the cross-domain transfer result above, applied to
+a distribution the model has never seen.
+
+### Implications for training (what to add)
+
+1. **Menu-shape augmentation.** The corpus should vary option count *and* order, including
+   2-option and 3-option menus, and both orders of a plausible pair. Today a model tuned at one
+   fixed option count does not transfer to a deployment that varies it.
+2. **Abstention examples in small menus, balanced.** The sentinel must not become a prior-dominant
+   class. Include small menus where the correct answer *is* a real tool, with the sentinel present,
+   or the model learns "small menu -> None".
+3. **Scope-boundary rows, with the toolset in the prompt.** The 6 verbatim out-of-scope requests
+   above are a start; they need to be balanced against in-scope requests that *look* similar
+   (`Publish the module` vs `Save the module`; `Add a button` vs `Build a screen`) or the model
+   will learn surface keywords instead of the boundary.
+4. **Hard negatives for the write path.** `save` scored 2/4, and `Publish`/`Deploy` both land on
+   it. If any single routing error can destroy work, it is this one, so it deserves the most rows.
+   Note the shape of the failure: the model accepts `save` for "Publish the module" (.99) and
+   *rejects* it for "Write the module to disk" (.76 No). It does not have a usable representation
+   of what `save` does - the description is in the prompt, but the decision is not grounded in it.
+5. **Teach the description, not just the label.** Rows that ask about one named tool and its own
+   description (the section-4 framing) are cheap to generate and directly target this. Right now
+   that framing is *worse* than the menu framing, which means the model has learned "which option
+   looks most like the request" rather than "what does this tool do".
+6. **Eval must report menu shape and per-tool recall**, not one aggregate. The 0.750 above is
+   compatible with both "usable" and "0/4 on the styling menu"; only the breakdown distinguishes
+   them.
+
+### Caveats
+
+- n is small (4-18 decisions per experiment) and single-seed. Treat these as directional, not as
+  benchmarks - the same caveat as every other number in this file.
+- One model size, one adapter (`06b`, CPU fp32). The 4B is untested here and may behave
+  differently; per the earlier entries it is stronger on tool-calling, so it is worth re-running
+  `probe_oadk_menus.py --exp all` against it before concluding anything about the family.
+- Latency in this file is CPU fp32 with the option list in the prompt, so it tracks prompt length:
+  ~4.2-5.1 s at 9 options vs ~2.0-2.9 s at 2-3. Not comparable to the GPU figures elsewhere.
+- "Out of scope" is defined by OADK's documented toolset gaps, not by an exhaustive study of what
+  the tools can do.
+

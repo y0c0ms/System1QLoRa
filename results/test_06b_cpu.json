@@ -1,0 +1,152 @@
+{
+ "base": "C:\\Users\\manuesantos\\Projetos\\system-one\\System1QLoRa\\models\\Qwen3-0.6B",
+ "adapter": "yocoms/system1-qlora",
+ "subfolder": "06b",
+ "device": "cpu",
+ "n_total": 10,
+ "n_correct_adapter": 5,
+ "n_correct_base": 5,
+ "latency_ms_mean": 427.75611999677494,
+ "cases": [
+  {
+   "tag": "Numeric trap (LLMs often fail)",
+   "pick": 1,
+   "expect": 1,
+   "correct": true,
+   "probs": [
+    0.40669352023285293,
+    0.5933064797671471
+   ],
+   "latency_ms": 291.429299977608,
+   "base_pick": 0,
+   "base_correct": false
+  },
+  {
+   "tag": "Weight trap",
+   "pick": 2,
+   "expect": 2,
+   "correct": true,
+   "probs": [
+    0.008920478817147415,
+    0.0021224194786936125,
+    0.9889571017041591
+   ],
+   "latency_ms": 285.6061999918893,
+   "base_pick": 2,
+   "base_correct": true
+  },
+  {
+   "tag": "Unit trap",
+   "pick": 1,
+   "expect": 2,
+   "correct": false,
+   "probs": [
+    0.47471307377417477,
+    0.4936658626767038,
+    0.03162106354912151
+   ],
+   "latency_ms": 305.4788999725133,
+   "base_pick": 2,
+   "base_correct": true
+  },
+  {
+   "tag": "Subtle off-by-one overflow",
+   "pick": 0,
+   "expect": 1,
+   "correct": false,
+   "probs": [
+    0.6169746026237208,
+    0.38302539737627916
+   ],
+   "latency_ms": 433.3098999923095,
+   "base_pick": 0,
+   "base_correct": false
+  },
+  {
+   "tag": "Safe code (should say no)",
+   "pick": 1,
+   "expect": 0,
+   "correct": false,
+   "probs": [
+    0.4796960012659435,
+    0.5203039987340564
+   ],
+   "latency_ms": 466.446099919267,
+   "base_pick": 0,
+   "base_correct": true
+  },
+  {
+   "tag": "Transitive spatial reasoning",
+   "pick": 2,
+   "expect": 2,
+   "correct": true,
+   "probs": [
+    0.20841825642210146,
+    0.03628943808224539,
+    0.7014000456366757,
+    0.05389225985897737
+   ],
+   "latency_ms": 446.5848000254482,
+   "base_pick": 2,
+   "base_correct": true
+  },
+  {
+   "tag": "Negation in entailment",
+   "pick": 1,
+   "expect": 1,
+   "correct": true,
+   "probs": [
+    0.005780009622109249,
+    0.9939347311702896,
+    0.0002852592076011669
+   ],
+   "latency_ms": 455.8606999926269,
+   "base_pick": 0,
+   "base_correct": false
+  },
+  {
+   "tag": "Sarcasm / true sentiment",
+   "pick": 0,
+   "expect": 1,
+   "correct": false,
+   "probs": [
+    0.9915912120937628,
+    0.004282432291966926,
+    0.004126355614270229
+   ],
+   "latency_ms": 439.71720000263304,
+   "base_pick": 0,
+   "base_correct": false
+  },
+  {
+   "tag": "Tool-calling: no tool fits (zero-shot)",
+   "pick": 3,
+   "expect": 3,
+   "correct": true,
+   "probs": [
+    1.4530147598175078e-05,
+    9.805249935226378e-06,
+    8.690694408052568e-07,
+    0.9999747955330258
+   ],
+   "latency_ms": 344.90000002551824,
+   "base_pick": 3,
+   "base_correct": true
+  },
+  {
+   "tag": "Temporal with distractors",
+   "pick": 3,
+   "expect": 2,
+   "correct": false,
+   "probs": [
+    0.40069875960704937,
+    0.021759939440248368,
+    0.08192168821534586,
+    0.4956196127373563
+   ],
+   "latency_ms": 808.2281000679359,
+   "base_pick": 3,
+   "base_correct": false
+  }
+ ]
+}

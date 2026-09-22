@@ -1,0 +1,596 @@
+{
+ "base": "C:\\Users\\manuesantos\\Projetos\\system-one\\System1QLoRa\\models\\Qwen3-0.6B",
+ "adapter": "yocoms/system1-qlora",
+ "subfolder": "06b",
+ "device": "cpu",
+ "menu_shape": [
+  {
+   "request": "Recolour the navbar to #ff4fa0.",
+   "want": "edit_css",
+   "shapes": {
+    "full_9_with_None": {
+     "pick": "edit_css",
+     "conf": 0.884,
+     "correct": true,
+     "ms": 4912
+    },
+    "styling_3_with_None": {
+     "pick": "None",
+     "conf": 0.99,
+     "correct": false,
+     "ms": 1908
+    },
+    "styling_3_None_first": {
+     "pick": "None",
+     "conf": 0.94,
+     "correct": false,
+     "ms": 2468
+    },
+    "styling_2_no_None": {
+     "pick": "edit_css",
+     "conf": 0.72,
+     "correct": true,
+     "ms": 1522
+    },
+    "styling_2_reversed_no_None": {
+     "pick": "edit_css",
+     "conf": 0.923,
+     "correct": true,
+     "ms": 1293
+    }
+   }
+  },
+  {
+   "request": "Change the theme colour of the top bar.",
+   "want": "edit_css",
+   "shapes": {
+    "full_9_with_None": {
+     "pick": "edit_css",
+     "conf": 0.753,
+     "correct": true,
+     "ms": 3406
+    },
+    "styling_3_with_None": {
+     "pick": "None",
+     "conf": 0.987,
+     "correct": false,
+     "ms": 1734
+    },
+    "styling_3_None_first": {
+     "pick": "None",
+     "conf": 0.96,
+     "correct": false,
+     "ms": 1647
+    },
+    "styling_2_no_None": {
+     "pick": "edit_widget",
+     "conf": 0.569,
+     "correct": false,
+     "ms": 1579
+    },
+    "styling_2_reversed_no_None": {
+     "pick": "edit_css",
+     "conf": 0.825,
+     "correct": true,
+     "ms": 1263
+    }
+   }
+  },
+  {
+   "request": "The submit button says 'Submit' \u2014 make it say 'Save'.",
+   "want": "edit_widget",
+   "shapes": {
+    "full_9_with_None": {
+     "pick": "None",
+     "conf": 0.531,
+     "correct": false,
+     "ms": 3032
+    },
+    "styling_3_with_None": {
+     "pick": "None",
+     "conf": 1.0,
+     "correct": false,
+     "ms": 1522
+    },
+    "styling_3_None_first": {
+     "pick": "None",
+     "conf": 0.983,
+     "correct": false,
+     "ms": 1596
+    },
+    "styling_2_no_None": {
+     "pick": "edit_widget",
+     "conf": 0.94,
+     "correct": true,
+     "ms": 1300
+    },
+    "styling_2_reversed_no_None": {
+     "pick": "edit_widget",
+     "conf": 0.982,
+     "correct": true,
+     "ms": 1396
+    }
+   }
+  },
+  {
+   "request": "Set Visible=false on the Alert widget in Pedidos.",
+   "want": "edit_widget",
+   "shapes": {
+    "full_9_with_None": {
+     "pick": "edit_widget",
+     "conf": 0.836,
+     "correct": true,
+     "ms": 3102
+    },
+    "styling_3_with_None": {
+     "pick": "None",
+     "conf": 0.99,
+     "correct": false,
+     "ms": 1305
+    },
+    "styling_3_None_first": {
+     "pick": "None",
+     "conf": 0.951,
+     "correct": false,
+     "ms": 1447
+    },
+    "styling_2_no_None": {
+     "pick": "edit_widget",
+     "conf": 0.998,
+     "correct": true,
+     "ms": 1286
+    },
+    "styling_2_reversed_no_None": {
+     "pick": "edit_widget",
+     "conf": 0.999,
+     "correct": true,
+     "ms": 1372
+    }
+   }
+  }
+ ],
+ "out_of_scope": [
+  {
+   "request": "Publish the module to the platform.",
+   "menus": {
+    "lifecycle": {
+     "pick": "save",
+     "conf": 0.906,
+     "ms": 2536
+    },
+    "styling": {
+     "pick": "edit_css",
+     "conf": 0.642,
+     "ms": 1503
+    },
+    "data": {
+     "pick": "create_entity",
+     "conf": 0.809,
+     "ms": 1308
+    }
+   },
+   "max_conf": 0.906
+  },
+  {
+   "request": "Deploy this to production.",
+   "menus": {
+    "lifecycle": {
+     "pick": "save",
+     "conf": 0.837,
+     "ms": 1865
+    },
+    "styling": {
+     "pick": "edit_widget",
+     "conf": 0.523,
+     "ms": 1421
+    },
+    "data": {
+     "pick": "create_entity",
+     "conf": 0.793,
+     "ms": 1323
+    }
+   },
+   "max_conf": 0.837
+  },
+  {
+   "request": "Add a button to the Pedidos screen.",
+   "menus": {
+    "lifecycle": {
+     "pick": "build_screen",
+     "conf": 0.922,
+     "ms": 2016
+    },
+    "styling": {
+     "pick": "edit_widget",
+     "conf": 0.803,
+     "ms": 1643
+    },
+    "data": {
+     "pick": "create_entity",
+     "conf": 0.827,
+     "ms": 1348
+    }
+   },
+   "max_conf": 0.922
+  },
+  {
+   "request": "Wire the Save button to create the Order entity.",
+   "menus": {
+    "lifecycle": {
+     "pick": "build_screen",
+     "conf": 0.823,
+     "ms": 1900
+    },
+    "styling": {
+     "pick": "edit_widget",
+     "conf": 0.942,
+     "ms": 1442
+    },
+    "data": {
+     "pick": "create_entity",
+     "conf": 0.812,
+     "ms": 1408
+    }
+   },
+   "max_conf": 0.942
+  },
+  {
+   "request": "Delete the Login screen.",
+   "menus": {
+    "lifecycle": {
+     "pick": "render_screen",
+     "conf": 0.766,
+     "ms": 1796
+    },
+    "styling": {
+     "pick": "edit_widget",
+     "conf": 0.758,
+     "ms": 1621
+    },
+    "data": {
+     "pick": "entities",
+     "conf": 0.551,
+     "ms": 1083
+    }
+   },
+   "max_conf": 0.766
+  },
+  {
+   "request": "Make the app work offline on mobile.",
+   "menus": {
+    "lifecycle": {
+     "pick": "render_screen",
+     "conf": 0.645,
+     "ms": 1596
+    },
+    "styling": {
+     "pick": "edit_css",
+     "conf": 0.636,
+     "ms": 1204
+    },
+    "data": {
+     "pick": "create_entity",
+     "conf": 0.753,
+     "ms": 1161
+    }
+   },
+   "max_conf": 0.753
+  }
+ ],
+ "capability_menu": [
+  {
+   "request": "Publish the module to the platform.",
+   "expect": "out_of_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.931,
+   "correct": false,
+   "ms": 10157
+  },
+  {
+   "request": "Deploy this to production.",
+   "expect": "out_of_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.88,
+   "correct": false,
+   "ms": 5353
+  },
+  {
+   "request": "Add a button to the Pedidos screen.",
+   "expect": "out_of_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.98,
+   "correct": false,
+   "ms": 5577
+  },
+  {
+   "request": "Wire the Save button to create the Order entity.",
+   "expect": "out_of_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.935,
+   "correct": false,
+   "ms": 4939
+  },
+  {
+   "request": "Delete the Login screen.",
+   "expect": "out_of_scope",
+   "pick": "No",
+   "said_yes": false,
+   "conf": 0.992,
+   "correct": true,
+   "ms": 4789
+  },
+  {
+   "request": "Make the app work offline on mobile.",
+   "expect": "out_of_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.634,
+   "correct": false,
+   "ms": 5011
+  },
+  {
+   "request": "Recolour the navbar to #ff4fa0.",
+   "expect": "in_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.96,
+   "correct": true,
+   "ms": 5060
+  },
+  {
+   "request": "Set Visible=false on the Alert widget in Pedidos.",
+   "expect": "in_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.98,
+   "correct": true,
+   "ms": 4892
+  },
+  {
+   "request": "Write the module to disk.",
+   "expect": "in_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.738,
+   "correct": true,
+   "ms": 4998
+  },
+  {
+   "request": "Run the security audit over the whole module before we publish.",
+   "expect": "in_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.951,
+   "correct": true,
+   "ms": 4953
+  },
+  {
+   "request": "What attributes does the Order entity have?",
+   "expect": "in_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.933,
+   "correct": true,
+   "ms": 4958
+  },
+  {
+   "request": "Create a login screen called LoginV2.",
+   "expect": "in_scope",
+   "pick": "Yes",
+   "said_yes": true,
+   "conf": 0.85,
+   "correct": true,
+   "ms": 5965
+  }
+ ],
+ "capability_tool": [
+  {
+   "request": "Publish the module to the platform.",
+   "expect": "out_of_scope",
+   "want": null,
+   "candidate": "save",
+   "candidate_conf": 0.985,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.753,
+    "correct": false
+   },
+   "does_it": {
+    "pick": "Yes",
+    "conf": 0.88,
+    "correct": false
+   }
+  },
+  {
+   "request": "Deploy this to production.",
+   "expect": "out_of_scope",
+   "want": null,
+   "candidate": "save",
+   "candidate_conf": 0.962,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.63,
+    "correct": false
+   },
+   "does_it": {
+    "pick": "Yes",
+    "conf": 0.723,
+    "correct": false
+   }
+  },
+  {
+   "request": "Add a button to the Pedidos screen.",
+   "expect": "out_of_scope",
+   "want": null,
+   "candidate": "edit_widget",
+   "candidate_conf": 0.512,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.933,
+    "correct": false
+   },
+   "does_it": {
+    "pick": "Yes",
+    "conf": 0.945,
+    "correct": false
+   }
+  },
+  {
+   "request": "Wire the Save button to create the Order entity.",
+   "expect": "out_of_scope",
+   "want": null,
+   "candidate": "create_entity",
+   "candidate_conf": 0.646,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.89,
+    "correct": false
+   },
+   "does_it": {
+    "pick": "Yes",
+    "conf": 0.95,
+    "correct": false
+   }
+  },
+  {
+   "request": "Delete the Login screen.",
+   "expect": "out_of_scope",
+   "want": null,
+   "candidate": "render_screen",
+   "candidate_conf": 0.562,
+   "right_tool": {
+    "pick": "No",
+    "conf": 0.927,
+    "correct": true
+   },
+   "does_it": {
+    "pick": "No",
+    "conf": 0.968,
+    "correct": true
+   }
+  },
+  {
+   "request": "Make the app work offline on mobile.",
+   "expect": "out_of_scope",
+   "want": null,
+   "candidate": "render_screen",
+   "candidate_conf": 0.566,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.54,
+    "correct": false
+   },
+   "does_it": {
+    "pick": "No",
+    "conf": 0.519,
+    "correct": true
+   }
+  },
+  {
+   "request": "Recolour the navbar to #ff4fa0.",
+   "expect": "in_scope",
+   "want": "edit_css",
+   "candidate": "edit_css",
+   "candidate_conf": 0.962,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.929,
+    "correct": true
+   },
+   "does_it": {
+    "pick": "Yes",
+    "conf": 0.974,
+    "correct": true
+   }
+  },
+  {
+   "request": "Set Visible=false on the Alert widget in Pedidos.",
+   "expect": "in_scope",
+   "want": "edit_widget",
+   "candidate": "edit_widget",
+   "candidate_conf": 0.994,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.623,
+    "correct": true
+   },
+   "does_it": {
+    "pick": "Yes",
+    "conf": 0.737,
+    "correct": true
+   }
+  },
+  {
+   "request": "Write the module to disk.",
+   "expect": "in_scope",
+   "want": "save",
+   "candidate": "save",
+   "candidate_conf": 0.958,
+   "right_tool": {
+    "pick": "No",
+    "conf": 0.76,
+    "correct": false
+   },
+   "does_it": {
+    "pick": "No",
+    "conf": 0.706,
+    "correct": false
+   }
+  },
+  {
+   "request": "Run the security audit over the whole module before we publish.",
+   "expect": "in_scope",
+   "want": "audit",
+   "candidate": "audit",
+   "candidate_conf": 0.823,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.731,
+    "correct": true
+   },
+   "does_it": {
+    "pick": "Yes",
+    "conf": 0.933,
+    "correct": true
+   }
+  },
+  {
+   "request": "What attributes does the Order entity have?",
+   "expect": "in_scope",
+   "want": "entities",
+   "candidate": "entities",
+   "candidate_conf": 0.796,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.951,
+    "correct": true
+   },
+   "does_it": {
+    "pick": "Yes",
+    "conf": 0.969,
+    "correct": true
+   }
+  },
+  {
+   "request": "Create a login screen called LoginV2.",
+   "expect": "in_scope",
+   "want": "build_screen",
+   "candidate": "build_screen",
+   "candidate_conf": 0.827,
+   "right_tool": {
+    "pick": "Yes",
+    "conf": 0.896,
+    "correct": true
+   },
+   "does_it": {
+    "pick": "Yes",
+    "conf": 0.912,
+    "correct": true
+   }
+  }
+ ]
+}

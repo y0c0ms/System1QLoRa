@@ -19,3 +19,7 @@ __pycache__/
 web/node_modules/
 web/dist/
 web/.astro/
+
+# Local base-model + adapter weights fetched for CPU testing
+# (see harness/fetch_qwen06b_local.py; verify sha256 against the HF LFS oid)
+models/

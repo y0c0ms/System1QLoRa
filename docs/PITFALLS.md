@@ -28,6 +28,15 @@ attached is the number this kind of project exists to correct, not to reproduce.
 tokens before the answer; letter-scoring reads position 0 and sees `We`, not `A`. Both the baseline
 and the trained model must be scored through the *same* raw path or you confound model with prompt.
 
+**An option menu is part of the prompt, not a neutral container.** Adding or removing an option moves
+probability mass between the survivors — including onto an abstention sentinel — so the *same*
+request can be scored right or wrong purely by menu shape. Measured on the OADK tool menu: four
+styling requests that the 9-option menu routes 3/4 collapse to **0/4** when the same tools are
+offered as a 3-option menu that includes `None of the above` (every request picked `None` at
+0.94–1.00). Reordering the same three options moved the `None` pick from letter C to letter A
+without changing the outcome, so it is not a position or letter artifact. **Report the menu
+alongside every routing number.**
+
 ## Calibration & comparison
 
 **Do not adopt an upstream repo's headline metrics.** Re-derive on the *test* split with your own
@@ -38,6 +47,15 @@ never fit on the rows you are scoring.
 **Measure the split you claim.** A category-disjoint (held-out-predicate) split and an in-distribution
 split answer different questions. Verify `train ∩ test = ∅` on the *predicates*, not just the inputs,
 before calling a number "generality."
+
+**A confident answer to a scope question is not scope discrimination.** Asking "can any of these
+tools carry out this request?" as its own Y/N question does not turn a router into a capability
+check. Of six OADK requests no tool could satisfy, five were affirmed as doable at 0.93–0.98;
+the only one caught (`Delete the Login screen`, P(No)=0.99) is the one whose verb has no near
+neighbour among the tools. `Publish`/`Deploy` sit next to `save` and were routed *to* it at
+0.91/0.84 — **higher** than the 0.79/0.73 they scored when an abstention option was present, so
+removing the sentinel raised confidence on exactly the cases that must be refused. Scope is not a
+class unless it was trained as one.
 
 ## Training
 
@@ -52,6 +70,15 @@ serve; do not expect zero-shot generalisation across domains at small scale.
 **Preserve the decision cue when truncating.** The answer-bearing tail (options + `Answer:`) must
 survive truncation, so left-truncate long states rather than cutting the end. Match train and eval
 truncation side.
+
+**Train on the menu shapes you will deploy, not just the tool list.** Routing accuracy is a function
+of the option set's size, composition *and* order. Measured on the OADK tool menu (four styling
+requests, adapter `06b`, CPU): the full 9-option menu scores 3/4; the same tools as a 3-option menu
+*including* an abstention sentinel score **0/4** (sentinel first or last, no difference); the same
+tools as a 2-option menu without a sentinel score 3/4 or **4/4** depending only on which tool is
+listed first. A corpus built at one fixed option count and order does not transfer to a deployment
+that varies either — and an abstention sentinel behaves like a class the model has over-learned,
+not like a neutral "none" marker.
 
 ## Long runs on shared / constrained hardware
 

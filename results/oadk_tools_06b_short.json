@@ -1,0 +1,941 @@
+{
+ "base": "C:\\Users\\manuesantos\\Projetos\\system-one\\System1QLoRa\\models\\Qwen3-0.6B",
+ "adapter": "yocoms/system1-qlora",
+ "subfolder": "06b",
+ "device": "cpu",
+ "tools": [
+  "render_screen(screen) \u2014 show a screen's widget tree and HTML preview",
+  "audit(scope?, screen?) \u2014 check the model for verify errors and security findings",
+  "build_screen(screen, archetype: login|list|form, entity?, listScreen?, fields?) \u2014 compose a screen from an archetype",
+  "entities(entity?) \u2014 list or describe the data model's entities and attributes",
+  "create_entity(name, attributes?, references?) \u2014 create or refine a database entity",
+  "edit_widget(screen, widget, property, value, expression?) \u2014 change one property of an existing widget",
+  "edit_css(marker, rules) \u2014 replace a marked section of the module stylesheet",
+  "save(note?, allowInsecure?) \u2014 write the module to its .oml file",
+  "None of the above \u2014 no tool in this toolset satisfies the request"
+ ],
+ "n_total": 44,
+ "n_correct_adapter": 33,
+ "n_correct_base": 7,
+ "latency_ms_mean": 3246.160970447818,
+ "per_tool": {
+  "render_screen": {
+   "correct": 4,
+   "n": 5
+  },
+  "audit": {
+   "correct": 4,
+   "n": 4
+  },
+  "build_screen": {
+   "correct": 6,
+   "n": 6
+  },
+  "entities": {
+   "correct": 4,
+   "n": 4
+  },
+  "create_entity": {
+   "correct": 3,
+   "n": 5
+  },
+  "edit_widget": {
+   "correct": 4,
+   "n": 5
+  },
+  "edit_css": {
+   "correct": 3,
+   "n": 5
+  },
+  "save": {
+   "correct": 3,
+   "n": 4
+  },
+  "None of the above": {
+   "correct": 2,
+   "n": 6
+  }
+ },
+ "cases": [
+  {
+   "request": "Show me what the Pedidos screen looks like right now.",
+   "want": 0,
+   "pick": 0,
+   "correct": true,
+   "probs": [
+    0.6717935306983435,
+    0.0014403741938761323,
+    0.002933905409788335,
+    0.0030380331308972005,
+    0.0006626273905570095,
+    0.0006028942747357035,
+    0.0009793913301520797,
+    0.0026042933977817534,
+    0.31594495017386826
+   ],
+   "latency_ms": 3524.0357000147924,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Render the Layout block on its own so I can inspect it.",
+   "want": 0,
+   "pick": 0,
+   "correct": true,
+   "probs": [
+    0.8906936000688713,
+    0.0031160694370189345,
+    0.02220284629793372,
+    0.0015199578833301826,
+    0.0008374926087630624,
+    0.0009993045874815134,
+    0.001713314481947247,
+    0.002260410792703972,
+    0.07665700384195008
+   ],
+   "latency_ms": 3232.1042999392375,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "I just recoloured the navbar \u2014 show the screen again to confirm the change.",
+   "want": 0,
+   "pick": 8,
+   "correct": false,
+   "probs": [
+    0.14280906837371976,
+    0.009605422954974447,
+    0.00245803264672576,
+    0.0005186272830772625,
+    0.0013247552800300085,
+    0.10523352949489798,
+    0.1370806201311243,
+    0.03140313344473967,
+    0.5695668103907109
+   ],
+   "latency_ms": 3919.8524000821635,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Before I touch anything, I want to see the widget tree of the Login screen.",
+   "want": 0,
+   "pick": 0,
+   "correct": true,
+   "probs": [
+    0.9511980291875686,
+    0.003397955271249461,
+    0.0018085065698722291,
+    0.0011506798800790924,
+    0.00040313463384320674,
+    0.00025887927189825033,
+    0.00013202212545661044,
+    0.0006680539461465445,
+    0.04098273911388603
+   ],
+   "latency_ms": 3551.9378000171855,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Preview the current state of the GestaoPedidos screen.",
+   "want": 0,
+   "pick": 0,
+   "correct": true,
+   "probs": [
+    0.8686119191506249,
+    0.0028434346328425853,
+    0.001714168729318325,
+    0.001807659035813448,
+    0.0005968091618930748,
+    0.0004769144240599259,
+    0.0003152276494190482,
+    0.0008665834787854881,
+    0.12276728373724335
+   ],
+   "latency_ms": 3331.361399963498,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Run the security audit over the whole module before we publish.",
+   "want": 1,
+   "pick": 1,
+   "correct": true,
+   "probs": [
+    0.0004683334665524347,
+    0.7825414635002008,
+    0.0003236654621486362,
+    0.00020618427877550105,
+    0.00023202601790956245,
+    9.150061252145305e-05,
+    0.00011457315040655,
+    0.0017140437360594423,
+    0.2143082097754255
+   ],
+   "latency_ms": 2979.432599968277,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Does the GestaoPedidos screen have any structural defects?",
+   "want": 1,
+   "pick": 1,
+   "correct": true,
+   "probs": [
+    0.06515117747368918,
+    0.527584481103705,
+    0.03696537947900116,
+    0.010947681400589004,
+    0.002304478432880267,
+    0.0009199984335848984,
+    0.001342816851623789,
+    0.0076811187096464,
+    0.3471028681152803
+   ],
+   "latency_ms": 3053.2588000642136,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Check the model for verify errors and raw model calls.",
+   "want": 1,
+   "pick": 1,
+   "correct": true,
+   "probs": [
+    0.00409898106133948,
+    0.8445452880180618,
+    0.000703645884851857,
+    0.0008140435182499559,
+    0.0003057819036824865,
+    7.874772741600656e-05,
+    6.353237852256136e-05,
+    0.0010203793363997313,
+    0.14836960017147596
+   ],
+   "latency_ms": 3150.4363999702036,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Is the module clean enough to save, or are there findings?",
+   "want": 1,
+   "pick": 1,
+   "correct": true,
+   "probs": [
+    0.03045078297509367,
+    0.6241130609905577,
+    0.018201418115912964,
+    0.010120842295686905,
+    0.0028144528299960466,
+    0.0012990653947466194,
+    0.005071704808442312,
+    0.023658258787573452,
+    0.28427041380199025
+   ],
+   "latency_ms": 3333.839099970646,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Create a login screen called LoginV2.",
+   "want": 2,
+   "pick": 2,
+   "correct": true,
+   "probs": [
+    0.007076228765754648,
+    0.001006828400770694,
+    0.7610902584915888,
+    0.00046883843377887004,
+    0.0007341231805095482,
+    0.0019198484449837075,
+    0.0009356094371188584,
+    0.0037846209679744396,
+    0.22298364387752037
+   ],
+   "latency_ms": 2731.0314000351354,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Scaffold a list screen over the Order entity.",
+   "want": 2,
+   "pick": 2,
+   "correct": true,
+   "probs": [
+    0.0033033195400633923,
+    0.0007459406608641268,
+    0.8684774840568399,
+    0.0032615919534652376,
+    0.0005508021741183927,
+    0.0009106342816209013,
+    0.0007952698329646387,
+    0.0033697376133107098,
+    0.11858521988675269
+   ],
+   "latency_ms": 2542.145400075242,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Make a create form for Customer.",
+   "want": 2,
+   "pick": 2,
+   "correct": true,
+   "probs": [
+    0.0022436948810053716,
+    0.000687835773897514,
+    0.8891240761854808,
+    0.002655407706682097,
+    0.0023337900816451603,
+    0.0010429096435486667,
+    0.0006382247471553403,
+    0.003140080471610889,
+    0.09813398050897404
+   ],
+   "latency_ms": 2679.699999978766,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Build a form screen over Customer that returns to GestaoClientes after saving.",
+   "want": 2,
+   "pick": 2,
+   "correct": true,
+   "probs": [
+    0.0014320348549592271,
+    0.0007273398795235024,
+    0.8889921978650218,
+    0.002315046413727394,
+    0.0008812218320623296,
+    0.0007102824062691992,
+    0.0005389565561704686,
+    0.0031684664918143145,
+    0.10123445370045184
+   ],
+   "latency_ms": 3092.430700082332,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Turn GestaoPedidos into a list screen over the Order entity.",
+   "want": 2,
+   "pick": 2,
+   "correct": true,
+   "probs": [
+    0.003336030471943722,
+    0.0008576218396261212,
+    0.8665153138755847,
+    0.0035169904535225127,
+    0.0009163634847496068,
+    0.0011991889820180627,
+    0.0006255674650789883,
+    0.0024466860325169054,
+    0.12058623739495943
+   ],
+   "latency_ms": 4025.281999958679,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "I need a sign-in page for the app, call it PortalLogin.",
+   "want": 2,
+   "pick": 2,
+   "correct": true,
+   "probs": [
+    0.006093940215352414,
+    0.0012165978286214508,
+    0.7701501211525975,
+    0.0005719589025714336,
+    0.0009096129729411535,
+    0.0016692030424644171,
+    0.000962903848735006,
+    0.00526274200785593,
+    0.21316292002886064
+   ],
+   "latency_ms": 3344.3139999872074,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "What attributes does the Order entity have?",
+   "want": 3,
+   "pick": 3,
+   "correct": true,
+   "probs": [
+    0.0003597089654130548,
+    0.0005279534112670583,
+    0.008961100182250015,
+    0.933985789313486,
+    0.0030962118635926073,
+    0.00014064672874283712,
+    6.455496745644595e-05,
+    0.000485691177653012,
+    0.052378343390139026
+   ],
+   "latency_ms": 3040.731000015512,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "List the entities in this module.",
+   "want": 3,
+   "pick": 3,
+   "correct": true,
+   "probs": [
+    0.004705211768681484,
+    0.00037293896338446184,
+    0.006416509854467251,
+    0.9018363239427752,
+    0.0016296327711645537,
+    0.00012805444605062938,
+    0.00022429055383751769,
+    0.001505015201641399,
+    0.08318202249799746
+   ],
+   "latency_ms": 3260.675699915737,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Describe the Customer entity in full.",
+   "want": 3,
+   "pick": 3,
+   "correct": true,
+   "probs": [
+    0.0012877870531420627,
+    0.0007755702585033535,
+    0.0076266014244254126,
+    0.9300346737153685,
+    0.0040724344740037865,
+    6.989864483418765e-05,
+    6.135847738218216e-05,
+    0.000625701288219573,
+    0.0554459746641208
+   ],
+   "latency_ms": 3847.1358999377117,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "I need the data model before I build the form \u2014 what's there?",
+   "want": 3,
+   "pick": 3,
+   "correct": true,
+   "probs": [
+    0.015116648490472964,
+    0.10231677811319224,
+    0.04658341953358868,
+    0.6526705543710507,
+    0.011591198639369043,
+    0.00031035869689225706,
+    0.0001519578351751621,
+    0.002092282794293345,
+    0.16916680152596564
+   ],
+   "latency_ms": 3468.7936999835074,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Add an entity Invoice with attributes Number:Text, Amount:Currency.",
+   "want": 4,
+   "pick": 3,
+   "correct": false,
+   "probs": [
+    0.0023262442559610656,
+    0.0019362605948148167,
+    0.19665559230442872,
+    0.43045220359123193,
+    0.2956020974956448,
+    0.0032744039680201566,
+    0.0003971226971857894,
+    0.004478107092616639,
+    0.06487796800009604
+   ],
+   "latency_ms": 3378.939599962905,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Create a Customer entity with Name:Text mandatory and a reference to Company.",
+   "want": 4,
+   "pick": 4,
+   "correct": true,
+   "probs": [
+    0.002665026318799427,
+    0.0036161596866039606,
+    0.12045931142693432,
+    0.25628356036640715,
+    0.571218339583617,
+    0.0006804406204311626,
+    0.00033078214446801904,
+    0.004105374886524172,
+    0.040641004966214755
+   ],
+   "latency_ms": 3213.5143999475986,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Add a Phone attribute to the Customer entity.",
+   "want": 4,
+   "pick": 3,
+   "correct": false,
+   "probs": [
+    0.004514930369120892,
+    0.0029068187186062134,
+    0.16202156346857918,
+    0.3890166221690808,
+    0.15330913577277175,
+    0.1730731193049185,
+    0.0003754042460556326,
+    0.0037382926900575747,
+    0.11104411326080947
+   ],
+   "latency_ms": 2589.221899979748,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Add a foreign key from Order to Customer.",
+   "want": 4,
+   "pick": 4,
+   "correct": true,
+   "probs": [
+    0.002731231977871615,
+    0.005875256473863651,
+    0.12793225862443292,
+    0.035803315697376645,
+    0.6082794837295608,
+    0.01698117376542446,
+    0.0005092542492974984,
+    0.004236763452231246,
+    0.1976512620299413
+   ],
+   "latency_ms": 2880.3141000680625,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Create an entity for LMS progress with a reference to Course.",
+   "want": 4,
+   "pick": 4,
+   "correct": true,
+   "probs": [
+    0.0025533710645677357,
+    0.0022180349041354373,
+    0.11554596585978177,
+    0.1986859546532976,
+    0.6217353516021659,
+    0.0010028195170318885,
+    0.0005042074845658797,
+    0.004625983481441506,
+    0.05312831143301235
+   ],
+   "latency_ms": 2687.590299989097,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Set the Title of the header on Pedidos to 'Pedidos 2026'.",
+   "want": 5,
+   "pick": 5,
+   "correct": true,
+   "probs": [
+    0.0033497417594276335,
+    0.0002631615458735887,
+    0.001220379041587249,
+    0.00020526612682415834,
+    0.00032635808980466106,
+    0.9681852671518887,
+    0.0005407039096297039,
+    0.0008532693688866609,
+    0.025055853006077527
+   ],
+   "latency_ms": 2719.0554999979213,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Change the Login screen's Username field so it is mandatory.",
+   "want": 5,
+   "pick": 5,
+   "correct": true,
+   "probs": [
+    0.0034387447142146706,
+    0.0009123417985021763,
+    0.014754306757370857,
+    0.00024130599019847235,
+    0.0004269808919298215,
+    0.9082680689891358,
+    0.0002527300346699891,
+    0.0004199384429988891,
+    0.07128558238097922
+   ],
+   "latency_ms": 3111.4266000222415,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "The submit button says 'Submit' \u2014 make it say 'Save'.",
+   "want": 5,
+   "pick": 8,
+   "correct": false,
+   "probs": [
+    0.0036683090442711755,
+    0.001112941574610917,
+    0.016008585925918573,
+    0.001707110179440286,
+    0.0021300633126697683,
+    0.21971073450398376,
+    0.016217228885259165,
+    0.29964183241985987,
+    0.4398031941539864
+   ],
+   "latency_ms": 2673.4564000507817,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Set Visible=false on the Alert widget in Pedidos.",
+   "want": 5,
+   "pick": 5,
+   "correct": true,
+   "probs": [
+    0.0011863696182742754,
+    0.00011456262491194204,
+    0.0003802214262034286,
+    0.00016036584746904978,
+    0.0002912392424894945,
+    0.9712105914342076,
+    5.513259783165882e-05,
+    0.00012445146560198235,
+    0.02647706574301053
+   ],
+   "latency_ms": 2663.3359000552446,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "The TopHeaderBar on Pedidos shows 'Home' \u2014 change that label to 'In\u00edcio'.",
+   "want": 5,
+   "pick": 5,
+   "correct": true,
+   "probs": [
+    0.00118517235362933,
+    0.0001411564393152951,
+    0.0002714900045360793,
+    5.777071193684063e-05,
+    0.00016321207518363637,
+    0.9900915130418353,
+    0.0002398867667916268,
+    0.0001448178631689397,
+    0.007704980743602961
+   ],
+   "latency_ms": 4354.580899933353,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Recolour the navbar to #ff4fa0.",
+   "want": 6,
+   "pick": 6,
+   "correct": true,
+   "probs": [
+    0.004213925678578787,
+    0.00031812368097888533,
+    0.0017925159712359933,
+    0.0003107502048568996,
+    0.0006498876646817884,
+    0.030728778940654487,
+    0.8701879254267719,
+    0.0026196918499731634,
+    0.08917840058226804
+   ],
+   "latency_ms": 4554.003000026569,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "The header bar is green \u2014 make it dark blue.",
+   "want": 6,
+   "pick": 5,
+   "correct": false,
+   "probs": [
+    0.003301537392080007,
+    0.00041111950275232273,
+    0.0019498902591640753,
+    0.0003614640883596977,
+    0.0007540084932352684,
+    0.8017729627169514,
+    0.1691418962256224,
+    0.0013419061076501086,
+    0.020965215214184752
+   ],
+   "latency_ms": 3374.6876999503,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Add a CSS rule styling .os-header with a new background.",
+   "want": 6,
+   "pick": 6,
+   "correct": true,
+   "probs": [
+    0.001825564045440656,
+    0.00011347958457171164,
+    0.0006602555254922681,
+    0.00017112941244491547,
+    0.0002818093662795852,
+    0.017912800361733375,
+    0.9573697940884497,
+    0.0011353988413997174,
+    0.020529768774188092
+   ],
+   "latency_ms": 3394.288499956019,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Change the theme colour of the top bar.",
+   "want": 6,
+   "pick": 5,
+   "correct": false,
+   "probs": [
+    0.003715750787362701,
+    0.0002373030492720159,
+    0.0007400269947421035,
+    0.00016403535661273233,
+    0.0004318396212125934,
+    0.9141736828227314,
+    0.04356593209420449,
+    0.0008509717837209439,
+    0.036120457490140985
+   ],
+   "latency_ms": 2850.495099904947,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "The links in the header are hard to read; adjust their colour in the stylesheet.",
+   "want": 6,
+   "pick": 6,
+   "correct": true,
+   "probs": [
+    0.0017166882160497897,
+    0.0002010840643985691,
+    0.0008141854843387076,
+    0.0002681917413222422,
+    0.00028376551701659106,
+    0.016053055762353996,
+    0.9706216133618587,
+    0.0005249782738072371,
+    0.00951643757885416
+   ],
+   "latency_ms": 2643.7543999636546,
+   "base_pick": 6,
+   "base_correct": true
+  },
+  {
+   "request": "Write the module to disk.",
+   "want": 7,
+   "pick": 7,
+   "correct": true,
+   "probs": [
+    0.0012288240191568704,
+    0.00037076584646302235,
+    0.0004170636606516841,
+    0.00019121243840315022,
+    0.00023698957042051882,
+    0.0005110009774094108,
+    0.0012574801601271362,
+    0.8381909769965806,
+    0.15759568633078766
+   ],
+   "latency_ms": 2762.6016000285745,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Persist my changes to the .oml file.",
+   "want": 7,
+   "pick": 7,
+   "correct": true,
+   "probs": [
+    0.0008022974360661747,
+    0.0007260730916412774,
+    0.0003158480780709403,
+    0.00024355229308097923,
+    0.00022307962901287995,
+    0.0003546469360426356,
+    0.0005129348978013342,
+    0.882740844425802,
+    0.11408072321248175
+   ],
+   "latency_ms": 2579.926499980502,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Save anyway, I know about the security warning \u2014 I'm mid-refactor.",
+   "want": 7,
+   "pick": 8,
+   "correct": false,
+   "probs": [
+    0.013234682749123474,
+    0.1431704919038237,
+    0.011442789060111225,
+    0.0027792615729677127,
+    0.00670208743733549,
+    0.03265934061557621,
+    0.009597971771469887,
+    0.100160943597748,
+    0.6802524312918443
+   ],
+   "latency_ms": 2683.680000016466,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Record a note 'navbar rebrand' and save the module.",
+   "want": 7,
+   "pick": 7,
+   "correct": true,
+   "probs": [
+    0.0036239931388084004,
+    0.0005739280139806885,
+    0.0013525300874002194,
+    0.00018285442919121955,
+    0.000994426876020925,
+    0.004840613386404316,
+    0.0080108205785967,
+    0.5600731941232032,
+    0.4203476393663944
+   ],
+   "latency_ms": 2791.4783000014722,
+   "base_pick": 8,
+   "base_correct": false
+  },
+  {
+   "request": "Publish the module to the platform.",
+   "want": 8,
+   "pick": 7,
+   "correct": false,
+   "probs": [
+    0.0011242501170154037,
+    0.0004259975207248576,
+    0.0005337990534929503,
+    0.00022645701563273936,
+    0.00016474265719734155,
+    0.00033210322912493933,
+    0.0009124586227398815,
+    0.9202639368661503,
+    0.07601625491792172
+   ],
+   "latency_ms": 2487.4593999702483,
+   "base_pick": 8,
+   "base_correct": true
+  },
+  {
+   "request": "Deploy this to production.",
+   "want": 8,
+   "pick": 7,
+   "correct": false,
+   "probs": [
+    0.003307599639060115,
+    0.0019865319101068164,
+    0.00258361757132915,
+    0.0007507735720316139,
+    0.0006600037640337329,
+    0.001414909269452098,
+    0.0033528051107780963,
+    0.8554757208429095,
+    0.13046803832029896
+   ],
+   "latency_ms": 2766.5415999945253,
+   "base_pick": 8,
+   "base_correct": true
+  },
+  {
+   "request": "Add a button to the Pedidos screen.",
+   "want": 8,
+   "pick": 2,
+   "correct": false,
+   "probs": [
+    0.011120952850852649,
+    0.0012550639580174443,
+    0.5041203998778622,
+    0.0014736486784790944,
+    0.0012953214337764274,
+    0.18836381491743534,
+    0.0014382766309469993,
+    0.0028467750092146674,
+    0.28808574664341524
+   ],
+   "latency_ms": 3506.695599993691,
+   "base_pick": 8,
+   "base_correct": true
+  },
+  {
+   "request": "Wire the Save button to create the Order entity.",
+   "want": 8,
+   "pick": 4,
+   "correct": false,
+   "probs": [
+    0.0034059786669475857,
+    0.002597921497337603,
+    0.39402626370600974,
+    0.0393751844886151,
+    0.41242434777000864,
+    0.014204468676054178,
+    0.0011644136461383655,
+    0.016292152223316248,
+    0.1165092693255726
+   ],
+   "latency_ms": 4075.5267000058666,
+   "base_pick": 8,
+   "base_correct": true
+  },
+  {
+   "request": "Delete the Login screen.",
+   "want": 8,
+   "pick": 8,
+   "correct": true,
+   "probs": [
+    0.000789732404546404,
+    0.0008995147444056866,
+    0.000570944669690344,
+    0.0001314856900799185,
+    0.00023446118545119129,
+    0.0011730474293060828,
+    0.0008325294436440205,
+    0.0017871389229660447,
+    0.9935811455099103
+   ],
+   "latency_ms": 5713.216100004502,
+   "base_pick": 8,
+   "base_correct": true
+  },
+  {
+   "request": "Make the app work offline on mobile.",
+   "want": 8,
+   "pick": 8,
+   "correct": true,
+   "probs": [
+    0.004899837805833297,
+    0.0012919889431000627,
+    0.0022459207854258986,
+    0.0011122695571256038,
+    0.001483930788296202,
+    0.0028789336165230754,
+    0.03232320623818869,
+    0.4623222852384568,
+    0.4914416270270503
+   ],
+   "latency_ms": 4266.794299939647,
+   "base_pick": 8,
+   "base_correct": true
+  }
+ ]
+}
