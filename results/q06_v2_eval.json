@@ -1,0 +1,74 @@
+{
+ "base": "Qwen/Qwen3-0.6B",
+ "adapter": "results/q06_v2_lora",
+ "datasets": {
+  "sni": {
+   "T": 1.4000000000000006,
+   "n_test": 1950,
+   "skipped_gt26": 0,
+   "acc_all": 0.5133333333333333,
+   "acc_by_task": {
+    "task020_mctaco_span_based_question": 0.54,
+    "task050_multirc_answerability": 0.66,
+    "task1155_bard_analogical_reasoning_trash_or_treasure": 0.66,
+    "task133_winowhy_reason_plausibility_detection": 0.44,
+    "task1344_glue_entailment_classification": 0.46,
+    "task1388_cb_entailment": 0.44,
+    "task1390_wscfixed_coreference": 0.48,
+    "task1439_doqa_cooking_isanswerable": 0.62,
+    "task1442_doqa_movies_isanswerable": 0.7,
+    "task1529_scitail1.1_classification": 0.54,
+    "task1554_scitail_classification": 0.54,
+    "task1624_disfl_qa_question_yesno_classification": 0.62,
+    "task1640_aqa1.0_answerable_unanswerable_question_classification": 0.56,
+    "task190_snli_classification": 0.58,
+    "task199_mnli_classification": 0.36,
+    "task200_mnli_entailment_classification": 0.82,
+    "task201_mnli_neutral_classification": 0.16,
+    "task202_mnli_contradiction_classification": 0.14,
+    "task226_english_language_answer_relevance_classification": 0.54,
+    "task232_iirc_link_number_classification": 0.28,
+    "task233_iirc_link_exists_classification": 0.34,
+    "task242_tweetqa_classification": 0.68,
+    "task290_tellmewhy_question_answerability": 0.72,
+    "task349_squad2.0_answerable_unanswerable_question_classification": 0.46,
+    "task391_causal_relationship": 0.5,
+    "task392_inverse_causal_relationship": 0.5,
+    "task520_aquamuse_answer_given_in_passage": 0.9,
+    "task640_esnli_classification": 0.32,
+    "task641_esnli_classification": 0.28,
+    "task642_esnli_classification": 0.32,
+    "task738_perspectrum_classification": 0.58,
+    "task828_copa_commonsense_cause_effect": 0.52,
+    "task879_schema_guided_dstc8_classification": 0.54,
+    "task880_schema_guided_dstc8_classification": 0.14,
+    "task890_gcwd_classification": 0.52,
+    "task935_defeasible_nli_atomic_classification": 0.64,
+    "task936_defeasible_nli_snli_classification": 0.52,
+    "task937_defeasible_nli_social_classification": 0.6,
+    "task970_sherliic_causal_relationship": 0.8
+   }
+  },
+  "reflex": {
+   "T": 1.1000000000000003,
+   "n_test": 600,
+   "skipped_gt26": 0,
+   "acc_all": 0.5516666666666666,
+   "acc_by_task": {
+    "code_defect": 0.545,
+    "math_level": 0.37,
+    "math_topic": 0.74
+   }
+  },
+  "bfcl": {
+   "T": 0.7500000000000001,
+   "n_test": 399,
+   "skipped_gt26": 1,
+   "acc_all": 0.8521303258145363,
+   "acc_by_task": {
+    "bfcl_v3_live_multi": 0.8379120879120879,
+    "bfcl_v3_multi": 1.0
+   }
+  }
+ }
+}

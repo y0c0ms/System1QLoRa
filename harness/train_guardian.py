@@ -79,15 +79,25 @@ def set_gpu_fan_max():
 
 
 PERF_LEVEL = "/sys/class/drm/card1/device/power_dpm_force_performance_level"
+SCLK_MASK = "/sys/class/drm/card1/device/pp_dpm_sclk"
+SCLK_LEVEL = "2"  # DPM level 2 (~1927MHz) vs level 1 max (~2506MHz): ~23% lower
 
 
-def ensure_perf_auto():
-    """The GPU DPM can get stuck at 'low' (clocks pinned, ~90s/step, cool+idle).
-    Force 'auto' so it clocks up under load. Cheap; safe to call every poll."""
+def ensure_clock_capped():
+    """Keep the GPU at full-clock 'auto' (fast) while preventing the DPM 'low'
+    stall. Set GUARDIAN_GPU_DESKTOP=1 to instead pin a reduced manual clock that
+    leaves headroom for an interactive desktop (slower, no frame-skipping)."""
+    import os
+    desktop = os.environ.get("GUARDIAN_GPU_DESKTOP") == "1"
     cur = sh(f"cat {PERF_LEVEL}").stdout.strip()
-    if cur and cur != "auto":
+    if desktop:
+        if cur != "manual":
+            sh(f"echo manual | sudo tee {PERF_LEVEL} >/dev/null")
+            sh(f"echo {SCLK_LEVEL} | sudo tee {SCLK_MASK} >/dev/null")
+            glog(f"GPU clock capped: manual sclk level {SCLK_LEVEL} (~1927MHz) for desktop headroom")
+    elif cur and cur != "auto":
         sh(f"echo auto | sudo tee {PERF_LEVEL} >/dev/null")
-        glog(f"GPU perf level was '{cur}' -> reset to auto")
+        glog(f"GPU perf level was '{cur}' -> auto (full clock)")
 
 
 def read_temps():
@@ -200,7 +210,7 @@ def main():
     cpu_freq = CPU_FREQ_START_KHZ
     set_cpu_freq(cpu_freq)
     set_gpu_power(GPU_POWER_CAP_W)
-    ensure_perf_auto()
+    ensure_clock_capped()
     floor_trips = 0
 
     if not training_running() and not training_complete(args.out):
@@ -210,7 +220,7 @@ def main():
         if training_complete(args.out):
             glog("training complete - guardian exiting")
             return 0
-        ensure_perf_auto()
+        ensure_clock_capped()
         t = read_temps()
         run = training_running()
         glog(f"gpu_j={t['gpu_junction']} gpu_mem={t['gpu_mem']} gpu_edge={t['gpu_edge']} "

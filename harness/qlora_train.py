@@ -65,6 +65,8 @@ def main():
     ap.add_argument("--epochs", type=float, default=1.0)
     ap.add_argument("--lr", type=float, default=2e-4)
     ap.add_argument("--grad-accum", type=int, default=16)
+    ap.add_argument("--batch-size", type=int, default=1,
+                    help="per-device micro-batch; raise for small models to use the GPU")
     ap.add_argument("--save-steps", type=int, default=100)
     ap.add_argument("--lora-r", type=int, default=16)
     ap.add_argument("--resume", action="store_true")
@@ -80,7 +82,7 @@ def main():
                              bnb_4bit_compute_dtype=torch.bfloat16)
     model = AutoModelForCausalLM.from_pretrained(
         args.base, quantization_config=bnb, torch_dtype=torch.bfloat16,
-        device_map={"": 0}, attn_implementation="eager")
+        device_map={"": 0}, attn_implementation="sdpa")
     model.config.use_cache = False
     model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
     lora = LoraConfig(r=args.lora_r, lora_alpha=2 * args.lora_r, lora_dropout=0.05,
@@ -99,7 +101,7 @@ def main():
     warmup = max(10, int(0.03 * total_steps))
 
     targs = TrainingArguments(
-        output_dir=args.out, per_device_train_batch_size=1,
+        output_dir=args.out, per_device_train_batch_size=args.batch_size,
         gradient_accumulation_steps=args.grad_accum, num_train_epochs=args.epochs,
         max_steps=args.max_steps,
         learning_rate=args.lr, lr_scheduler_type="cosine", warmup_steps=warmup,

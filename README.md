@@ -11,6 +11,24 @@ and the **recorded pitfalls** — the training recipe is just one point in that 
 
 ---
 
+## Pretrained weights — [`yocoms/system1-qlora`](https://huggingface.co/yocoms/system1-qlora)
+
+Two QLoRA adapters (Qwen3-0.6B and Qwen3-4B-Instruct-2507), same recipe, on the Hub.
+Held-out test accuracy / ECE, vs frozen **Jev 1.13**:
+
+| benchmark | 0.6B | 4B | Jev 1.13 |
+|---|---|---|---|
+| SNI (semantic / NLI) | 0.613 / .037 | **0.707** / .050 | 0.838 |
+| reflex (safety) | **0.553** / .059 | **0.558** / .072 | 0.543 |
+| BFCL (tool select) | 0.885 / .032 | 0.920 / .034 | 0.957 |
+| abstention (none-fits) | **0.960** / .019 | **0.924** / .035 | 0.740 |
+
+Latency ~53 ms (0.6B) / ~165 ms (4B) per answer — 20× / 6.5× faster than Jev. We beat Jev on
+reflex and abstention, and closed most of the SNI gap once we found it was a **format** mismatch:
+the held-out NLI tasks are "pick which of 3 candidates is neutral", not single-pair label
+classification. Rebuilding NLI in that select-of-3 format (`harness/build_nli_select.py`) lifted
+`mnli_neutral` 0.16 → 0.88 on the 0.6B. See `docs/FINDINGS.md`.
+
 ## The task
 
 A "System One" decision (the contract popularised by TypeSafe's closed **Jev**) is:

@@ -1,0 +1,5412 @@
+{
+ "model": "opencode-zen/jev-1.13",
+ "dataset": "reflex",
+ "n": 600,
+ "n_parsed": 600,
+ "cap": null,
+ "seed": 0,
+ "acc_all": 0.5433333333333333,
+ "created": "2026-09-21T17:58:50.534777",
+ "rows": [
+  {
+   "idx": 0,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 1,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 2,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 3,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 4,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 5,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 6,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 7,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 8,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 9,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 10,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 11,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 12,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 13,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 14,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 15,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 16,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 17,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 18,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 19,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 20,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 21,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 22,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 23,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 24,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 25,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": false
+  },
+  {
+   "idx": 26,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 27,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 28,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 29,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 30,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 31,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 32,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 33,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 34,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 35,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 36,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": false
+  },
+  {
+   "idx": 37,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 38,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 39,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 40,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 41,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 42,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 43,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 44,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 45,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 46,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 47,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 48,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 49,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 50,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 51,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 52,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 53,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 54,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 55,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 56,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 57,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": false
+  },
+  {
+   "idx": 58,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 59,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 60,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 61,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 62,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 63,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 64,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 65,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 66,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 67,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 68,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 69,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 70,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 71,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 72,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 73,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 74,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 75,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 76,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 77,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 78,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 79,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 80,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 81,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 82,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 83,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 84,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 85,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 86,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 87,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 88,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 89,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 90,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 91,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 92,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 93,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 94,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 95,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 96,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 97,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 98,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 99,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 100,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 101,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 102,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 103,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 104,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 105,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 106,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 107,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 108,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 109,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 110,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 111,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 112,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 113,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 114,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 115,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 116,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 117,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 118,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 119,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 120,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 121,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 122,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 123,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 124,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 125,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 126,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 127,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 128,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 129,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 130,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 131,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 132,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 133,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 134,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 135,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 136,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 137,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 138,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 139,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 140,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 141,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 142,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 143,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 144,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 145,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 146,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 147,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 148,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 149,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 150,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 151,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 152,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 153,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 154,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 155,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 156,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 157,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 158,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 159,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 160,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 161,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": false
+  },
+  {
+   "idx": 162,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 163,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 164,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 165,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 166,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 167,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 168,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 169,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 170,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 171,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 172,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 173,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 174,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 175,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 176,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 177,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 178,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 179,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 180,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 181,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 182,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 183,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 184,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 185,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 186,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 187,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 188,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 189,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 190,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 191,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 192,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 193,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 194,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 195,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 196,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 197,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 198,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 199,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 200,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 201,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 202,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 203,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 204,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 205,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 206,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 207,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 208,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 209,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 210,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 211,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 212,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 213,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 214,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 215,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 216,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 217,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 218,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 219,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 220,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 221,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 222,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 223,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": false
+  },
+  {
+   "idx": 224,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 225,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 226,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 227,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 228,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 229,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 230,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 231,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 232,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": false
+  },
+  {
+   "idx": 233,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 234,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 235,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 236,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 237,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 238,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 239,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 240,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 241,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 242,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 243,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 244,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 245,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 246,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 247,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 248,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 249,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 250,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 251,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 252,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 253,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 254,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 255,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 256,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 257,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 258,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 259,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 260,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 261,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 262,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 263,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 264,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 265,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 266,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 267,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 268,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 269,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 270,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 271,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 272,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 273,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 274,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 275,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 276,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 277,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 278,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 279,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 280,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 281,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 282,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 283,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 284,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 285,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 286,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 287,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 288,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 289,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 290,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 291,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 292,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 293,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 294,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 295,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 296,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 297,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 298,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 299,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 300,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 301,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 302,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 303,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 304,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 305,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 306,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 307,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 308,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 309,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 310,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 311,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 312,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 313,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 314,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 315,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 316,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 317,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 318,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 319,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 320,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 321,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 322,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 323,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 324,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 325,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 326,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 327,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 328,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 329,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 330,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 331,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 332,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 333,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 334,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 335,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 336,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 337,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 338,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 339,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 340,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 341,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 342,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 343,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 344,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 345,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 346,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 347,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 348,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 349,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 350,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 351,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 352,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 353,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 354,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 355,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 356,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 357,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 358,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 359,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 360,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 361,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 362,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 363,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 364,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 365,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 366,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 367,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 368,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 369,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 370,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 371,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 372,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 373,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 374,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 375,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 376,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 377,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 378,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 379,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 380,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 381,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 382,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 383,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 384,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 385,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 386,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 387,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 388,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 389,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 390,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 391,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 392,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 393,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 394,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 395,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 396,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 397,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 398,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 399,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 400,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 401,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 402,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 403,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 404,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 405,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 406,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 407,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 408,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 409,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 410,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 411,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 412,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 413,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 414,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 415,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 416,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 417,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 418,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 419,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 420,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 421,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 422,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 423,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 424,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": true
+  },
+  {
+   "idx": 425,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 426,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 427,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 428,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 429,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 430,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 431,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 432,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 433,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 434,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 435,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 436,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 437,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 438,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 439,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 440,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 441,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 442,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 443,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 444,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 445,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 446,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 447,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 448,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 449,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 450,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 451,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 452,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 453,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 454,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": false
+  },
+  {
+   "idx": 455,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 456,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 457,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 458,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 459,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 460,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 461,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 462,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 463,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 464,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 465,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 466,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 467,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 468,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 469,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 470,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 471,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 472,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 473,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 474,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 475,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 476,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 477,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 478,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 479,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 480,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 481,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 482,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 483,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 484,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 485,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 486,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 487,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 488,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 489,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 490,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 491,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 492,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 493,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 494,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 495,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 496,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 497,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 498,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 499,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 500,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 501,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 502,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 503,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 504,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 505,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 506,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 507,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 508,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 509,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 510,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 511,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 512,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 513,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 514,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 515,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 516,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 517,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 518,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 519,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 520,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 521,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 522,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 523,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 524,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 525,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 526,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 527,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 528,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 529,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 530,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 531,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 532,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 533,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 534,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 535,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 536,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 537,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 538,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 539,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 540,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 541,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 542,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 543,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 544,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 545,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 546,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 547,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 548,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 549,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 550,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 551,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 552,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 553,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 6,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": true
+  },
+  {
+   "idx": 554,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 555,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 556,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 557,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 558,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 559,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 560,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 561,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 5,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": false
+  },
+  {
+   "idx": 562,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 563,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 564,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "G",
+   "jev_pick": 6,
+   "correct": false
+  },
+  {
+   "idx": 565,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 566,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 567,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 568,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 569,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 570,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 571,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 572,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 573,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 574,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "C",
+   "jev_pick": 2,
+   "correct": true
+  },
+  {
+   "idx": 575,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 576,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 577,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 578,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 579,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 580,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 581,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 582,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "F",
+   "jev_pick": 5,
+   "correct": false
+  },
+  {
+   "idx": 583,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 584,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 0,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": true
+  },
+  {
+   "idx": 585,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 586,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 3,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": false
+  },
+  {
+   "idx": 587,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 588,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "A",
+   "jev_pick": 0,
+   "correct": false
+  },
+  {
+   "idx": 589,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 590,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 591,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "E",
+   "jev_pick": 4,
+   "correct": true
+  },
+  {
+   "idx": 592,
+   "task": "code_defect",
+   "n_options": 2,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 593,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 594,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 0,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  },
+  {
+   "idx": 595,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 596,
+   "task": "math_topic",
+   "n_options": 7,
+   "answer_index": 3,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": true
+  },
+  {
+   "idx": 597,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 4,
+   "jev_raw": "D",
+   "jev_pick": 3,
+   "correct": false
+  },
+  {
+   "idx": 598,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 1,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": true
+  },
+  {
+   "idx": 599,
+   "task": "math_level",
+   "n_options": 5,
+   "answer_index": 2,
+   "jev_raw": "B",
+   "jev_pick": 1,
+   "correct": false
+  }
+ ]
+}

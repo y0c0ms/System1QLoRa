@@ -43,6 +43,30 @@ def fit_temperature(logit_sets, answers):
     return best_t
 
 
+def _softmax(lg, T):
+    m = max(x / T for x in lg)
+    e = [math.exp(x / T - m) for x in lg]
+    s = sum(e)
+    return [x / s for x in e]
+
+
+def _ece(confs, corrects, bins=15):
+    """Expected Calibration Error: |accuracy - confidence| averaged over
+    equal-width confidence bins, weighted by bin population."""
+    if not confs:
+        return 0.0
+    tot, e = len(confs), 0.0
+    for b in range(bins):
+        lo, hi = b / bins, (b + 1) / bins
+        idx = [i for i, c in enumerate(confs) if (c > lo or b == 0) and c <= hi]
+        if not idx:
+            continue
+        acc = sum(corrects[i] for i in idx) / len(idx)
+        conf = sum(confs[i] for i in idx) / len(idx)
+        e += (len(idx) / tot) * abs(acc - conf)
+    return e
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default="Qwen/Qwen2.5-7B-Instruct")
@@ -95,19 +119,39 @@ def main():
         T = fit_temperature(vlog, vans)
         tlog = [score(r) for r in test]
         tans = [r["answer_index"] for r in test]
-        by_task = {}
+        by_task = {}                       # task -> [correct, n, brier_sum]
+        conf_task = {}                     # task -> ([confidences], [corrects])
+        conf_all, corr_all = [], []
         for lg, a, r in zip(tlog, tans, test):
-            pred = max(range(len(lg)), key=lambda i: lg[i])
-            by_task.setdefault(r["task"], [0, 0])
-            by_task[r["task"]][1] += 1
-            by_task[r["task"]][0] += int(pred == a)
+            p = _softmax(lg, T)            # calibrated distribution over this row's options
+            pred = max(range(len(p)), key=lambda i: p[i])
+            ok = int(pred == a)
+            brier = sum((p[i] - (1.0 if i == a else 0.0)) ** 2 for i in range(len(p)))
+            t = r["task"]
+            by_task.setdefault(t, [0, 0, 0.0])
+            by_task[t][0] += ok
+            by_task[t][1] += 1
+            by_task[t][2] += brier
+            conf_task.setdefault(t, ([], []))
+            conf_task[t][0].append(p[pred])
+            conf_task[t][1].append(ok)
+            conf_all.append(p[pred])
+            corr_all.append(ok)
         acc = {t: c[0] / c[1] for t, c in sorted(by_task.items())}
-        overall = sum(c[0] for c in by_task.values()) / sum(c[1] for c in by_task.values())
+        brier_by_task = {t: c[2] / c[1] for t, c in sorted(by_task.items())}
+        ece_by_task = {t: _ece(conf_task[t][0], conf_task[t][1]) for t in sorted(by_task)}
+        n_all = sum(c[1] for c in by_task.values())
+        overall = sum(c[0] for c in by_task.values()) / n_all
+        brier_all = sum(c[2] for c in by_task.values()) / n_all
+        ece_all = _ece(conf_all, corr_all)
         report["datasets"][name] = {"T": T, "n_test": len(test), "skipped_gt26": skipped,
-                                    "acc_all": overall, "acc_by_task": acc}
-        print(f"[{name}] T={T:.2f} n={len(test)} skipped={skipped} ALL={overall:.3f}", flush=True)
+                                    "acc_all": overall, "ece_all": ece_all, "brier_all": brier_all,
+                                    "acc_by_task": acc, "ece_by_task": ece_by_task,
+                                    "brier_by_task": brier_by_task}
+        print(f"[{name}] T={T:.2f} n={len(test)} skipped={skipped} "
+              f"ALL={overall:.3f} ECE={ece_all:.3f} Brier={brier_all:.3f}", flush=True)
         for t, a in acc.items():
-            print(f"    {t:40s} {a:.3f}", flush=True)
+            print(f"    {t:40s} {a:.3f}  ece={ece_by_task[t]:.3f} brier={brier_by_task[t]:.3f}", flush=True)
         json.dump(report, open(args.out + ".partial", "w"), indent=1)
 
     json.dump(report, open(args.out, "w"), indent=1)
