@@ -33,6 +33,18 @@ in that design space. **Improvements on top of this work are very welcome** — 
 |---|---|---|---|
 | [`06b/`](https://huggingface.co/yocoms/system1-qlora/tree/main/06b) | Qwen3-0.6B | LoRA r=16, α=32 | ~53 ms on GPU; ~0.4 s on CPU (fp32) |
 | [`4b/`](https://huggingface.co/yocoms/system1-qlora/tree/main/4b) | Qwen3-4B-Instruct-2507 | LoRA r=16, α=32 | ~165 ms on GPU |
+| [`06b_bf16_r16/`](https://huggingface.co/yocoms/system1-qlora/tree/main/06b_bf16_r16) | Qwen3-0.6B | LoRA r=16, α=32 | ~53 ms on GPU |
+
+**`06b_bf16_r16/` is a 2026-09-23 rebuild, not an upgrade — read this before choosing it.** Same
+recipe, but trained on a **bf16 base rather than 4-bit NF4** (which is worth about 7 points on the
+dev sets: training on a full-precision base beats QLoRA at this size, and it is a *training* effect,
+not an inference one), on a **broadened corpus** that includes kev's public sources, with option
+permutation at p=0.5. On the 231 public JevBench items it scores **0.632 against `06b/`'s 0.619 —
+and that difference is not statistically significant** (+0.013, 95% CI [−0.035, +0.061]). It is
+significantly better on kevsuite (+0.111 [+0.084, +0.137]) but that set is *in-distribution* for its
+corpus, and it is **worse on abstention** (0.836 vs 0.960). Prefer `06b/` unless you specifically
+want the kevsuite behaviour; the rebuild exists mainly as the cleanest available demonstration of
+the training-precision effect.
 
 ## Scoring mechanism
 
