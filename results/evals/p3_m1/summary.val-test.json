@@ -1,0 +1,191 @@
+{
+ "args": {
+  "base": "Qwen/Qwen3-0.6B",
+  "adapter": "results/loop9h/p3_m1",
+  "model": "",
+  "precision": "bf16",
+  "tag": "p3_m1",
+  "datasets": [
+   "sni",
+   "reflex",
+   "bfcl",
+   "bfcl_irr",
+   "kevsuite",
+   "oadk",
+   "jevbench"
+  ],
+  "splits": [
+   "val",
+   "test"
+  ],
+  "orders": [
+   "orig",
+   "rev"
+  ],
+  "max_len": 1024,
+  "long_max_len": 8192,
+  "tok_budget": 16384,
+  "vram_cap_gb": 8.0,
+  "long_tok_budget": 8192,
+  "limit": 0,
+  "check_invariance": 0
+ },
+ "summary": {
+  "sni.val.orig": {
+   "n": 4800,
+   "acc": 0.6420833333333333,
+   "truncated": 6,
+   "sec": 79.6
+  },
+  "sni.val.rev": {
+   "n": 4800,
+   "acc": 0.6541666666666667,
+   "truncated": 6,
+   "sec": 78.8
+  },
+  "sni.test.orig": {
+   "n": 1950,
+   "acc": 0.6282051282051282,
+   "truncated": 1,
+   "sec": 40.0
+  },
+  "sni.test.rev": {
+   "n": 1950,
+   "acc": 0.6353846153846154,
+   "truncated": 1,
+   "sec": 40.1
+  },
+  "reflex.val.orig": {
+   "n": 600,
+   "acc": 0.5683333333333334,
+   "truncated": 32,
+   "sec": 21.7
+  },
+  "reflex.val.rev": {
+   "n": 600,
+   "acc": 0.5316666666666666,
+   "truncated": 32,
+   "sec": 21.7
+  },
+  "reflex.test.orig": {
+   "n": 600,
+   "acc": 0.5616666666666666,
+   "truncated": 27,
+   "sec": 21.5
+  },
+  "reflex.test.rev": {
+   "n": 600,
+   "acc": 0.545,
+   "truncated": 27,
+   "sec": 21.5
+  },
+  "bfcl.val.orig": {
+   "n": 120,
+   "acc": 0.9833333333333333,
+   "truncated": 0,
+   "sec": 1.1
+  },
+  "bfcl.val.rev": {
+   "n": 120,
+   "acc": 0.9666666666666667,
+   "truncated": 0,
+   "sec": 1.1
+  },
+  "bfcl.test.orig": {
+   "n": 399,
+   "acc": 0.9072681704260651,
+   "truncated": 0,
+   "sec": 3.3
+  },
+  "bfcl.test.rev": {
+   "n": 399,
+   "acc": 0.9022556390977443,
+   "truncated": 0,
+   "sec": 3.3
+  },
+  "bfcl_irr.val.orig": {
+   "n": 80,
+   "acc": 0.8125,
+   "truncated": 0,
+   "sec": 0.9
+  },
+  "bfcl_irr.val.rev": {
+   "n": 80,
+   "acc": 0.8,
+   "truncated": 0,
+   "sec": 0.9
+  },
+  "bfcl_irr.test.orig": {
+   "n": 396,
+   "acc": 0.8358585858585859,
+   "truncated": 1,
+   "sec": 4.6
+  },
+  "bfcl_irr.test.rev": {
+   "n": 396,
+   "acc": 0.8383838383838383,
+   "truncated": 1,
+   "sec": 4.6
+  },
+  "kevsuite.val.orig": {
+   "n": 1324,
+   "acc": 0.8149546827794562,
+   "truncated": 0,
+   "sec": 18.5
+  },
+  "kevsuite.val.rev": {
+   "n": 1324,
+   "acc": 0.81797583081571,
+   "truncated": 0,
+   "sec": 18.5
+  },
+  "kevsuite.test.orig": {
+   "n": 1324,
+   "acc": 0.7764350453172205,
+   "truncated": 0,
+   "sec": 18.3
+  },
+  "kevsuite.test.rev": {
+   "n": 1324,
+   "acc": 0.7915407854984894,
+   "truncated": 0,
+   "sec": 18.3
+  },
+  "oadk.val.orig": {
+   "n": 16,
+   "acc": 0.625,
+   "truncated": 0,
+   "sec": 0.5
+  },
+  "oadk.val.rev": {
+   "n": 16,
+   "acc": 0.6875,
+   "truncated": 0,
+   "sec": 0.5
+  },
+  "oadk.test.orig": {
+   "n": 16,
+   "acc": 0.8125,
+   "truncated": 0,
+   "sec": 0.5
+  },
+  "oadk.test.rev": {
+   "n": 16,
+   "acc": 0.625,
+   "truncated": 0,
+   "sec": 0.5
+  },
+  "jevbench.test.orig": {
+   "n": 231,
+   "acc": 0.6320346320346321,
+   "truncated": 0,
+   "sec": 44.8
+  },
+  "jevbench.test.rev": {
+   "n": 231,
+   "acc": 0.6753246753246753,
+   "truncated": 0,
+   "sec": 44.8
+  }
+ }
+}

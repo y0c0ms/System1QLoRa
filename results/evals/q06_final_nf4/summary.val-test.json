@@ -1,0 +1,191 @@
+{
+ "args": {
+  "base": "Qwen/Qwen3-0.6B",
+  "adapter": "results/q06_final_lora",
+  "model": "",
+  "precision": "nf4",
+  "tag": "q06_final_nf4",
+  "datasets": [
+   "sni",
+   "reflex",
+   "bfcl",
+   "bfcl_irr",
+   "kevsuite",
+   "oadk",
+   "jevbench"
+  ],
+  "splits": [
+   "val",
+   "test"
+  ],
+  "orders": [
+   "orig",
+   "rev"
+  ],
+  "max_len": 1024,
+  "long_max_len": 8192,
+  "tok_budget": 16384,
+  "vram_cap_gb": 8.0,
+  "long_tok_budget": 8192,
+  "limit": 0,
+  "check_invariance": 0
+ },
+ "summary": {
+  "sni.val.orig": {
+   "n": 4800,
+   "acc": 0.6320833333333333,
+   "truncated": 6,
+   "sec": 80.7
+  },
+  "sni.val.rev": {
+   "n": 4800,
+   "acc": 0.636875,
+   "truncated": 6,
+   "sec": 79.9
+  },
+  "sni.test.orig": {
+   "n": 1950,
+   "acc": 0.6164102564102564,
+   "truncated": 1,
+   "sec": 40.6
+  },
+  "sni.test.rev": {
+   "n": 1950,
+   "acc": 0.6205128205128205,
+   "truncated": 1,
+   "sec": 40.6
+  },
+  "reflex.val.orig": {
+   "n": 600,
+   "acc": 0.58,
+   "truncated": 32,
+   "sec": 21.9
+  },
+  "reflex.val.rev": {
+   "n": 600,
+   "acc": 0.5483333333333333,
+   "truncated": 32,
+   "sec": 21.9
+  },
+  "reflex.test.orig": {
+   "n": 600,
+   "acc": 0.5516666666666666,
+   "truncated": 27,
+   "sec": 21.7
+  },
+  "reflex.test.rev": {
+   "n": 600,
+   "acc": 0.5633333333333334,
+   "truncated": 27,
+   "sec": 21.7
+  },
+  "bfcl.val.orig": {
+   "n": 120,
+   "acc": 0.975,
+   "truncated": 0,
+   "sec": 1.1
+  },
+  "bfcl.val.rev": {
+   "n": 120,
+   "acc": 0.9583333333333334,
+   "truncated": 0,
+   "sec": 1.1
+  },
+  "bfcl.test.orig": {
+   "n": 399,
+   "acc": 0.8872180451127819,
+   "truncated": 0,
+   "sec": 3.3
+  },
+  "bfcl.test.rev": {
+   "n": 399,
+   "acc": 0.9122807017543859,
+   "truncated": 0,
+   "sec": 3.3
+  },
+  "bfcl_irr.val.orig": {
+   "n": 80,
+   "acc": 0.9625,
+   "truncated": 0,
+   "sec": 1.0
+  },
+  "bfcl_irr.val.rev": {
+   "n": 80,
+   "acc": 0.975,
+   "truncated": 0,
+   "sec": 1.0
+  },
+  "bfcl_irr.test.orig": {
+   "n": 396,
+   "acc": 0.9595959595959596,
+   "truncated": 1,
+   "sec": 4.6
+  },
+  "bfcl_irr.test.rev": {
+   "n": 396,
+   "acc": 0.9671717171717171,
+   "truncated": 1,
+   "sec": 4.7
+  },
+  "kevsuite.val.orig": {
+   "n": 1324,
+   "acc": 0.6737160120845922,
+   "truncated": 0,
+   "sec": 18.7
+  },
+  "kevsuite.val.rev": {
+   "n": 1324,
+   "acc": 0.6978851963746223,
+   "truncated": 0,
+   "sec": 18.7
+  },
+  "kevsuite.test.orig": {
+   "n": 1324,
+   "acc": 0.6654078549848943,
+   "truncated": 0,
+   "sec": 18.5
+  },
+  "kevsuite.test.rev": {
+   "n": 1324,
+   "acc": 0.6706948640483383,
+   "truncated": 0,
+   "sec": 18.5
+  },
+  "oadk.val.orig": {
+   "n": 16,
+   "acc": 0.625,
+   "truncated": 0,
+   "sec": 0.5
+  },
+  "oadk.val.rev": {
+   "n": 16,
+   "acc": 0.75,
+   "truncated": 0,
+   "sec": 0.5
+  },
+  "oadk.test.orig": {
+   "n": 16,
+   "acc": 0.75,
+   "truncated": 0,
+   "sec": 0.5
+  },
+  "oadk.test.rev": {
+   "n": 16,
+   "acc": 0.6875,
+   "truncated": 0,
+   "sec": 0.5
+  },
+  "jevbench.test.orig": {
+   "n": 231,
+   "acc": 0.6190476190476191,
+   "truncated": 0,
+   "sec": 44.9
+  },
+  "jevbench.test.rev": {
+   "n": 231,
+   "acc": 0.6190476190476191,
+   "truncated": 0,
+   "sec": 44.9
+  }
+ }
+}

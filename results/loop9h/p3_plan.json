@@ -1,0 +1,1 @@
+{"winner":"p1_bf16_r16","precision":"bf16","r":16,"steps":2000,"gate":"DEFERRED","sps_m1_1024":2.5131028334299725,"m2_cost_ratio":2.0,"deadline":1790185384}

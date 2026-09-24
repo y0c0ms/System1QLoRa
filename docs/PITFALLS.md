@@ -37,6 +37,14 @@ offered as a 3-option menu that includes `None of the above` (every request pick
 without changing the outcome, so it is not a position or letter artifact. **Report the menu
 alongside every routing number.**
 
+**Gate batch invariance on decisions, not raw bf16 logits — and prove the gate has teeth.** bf16
+GEMM tiling depends on batch shape, so the same row scored alone and in a batch differs by up to
+one bf16 ULP at the logit's magnitude (0.5 at |logit| ≥ 64) with zero effect on any decision. A
+`max|Δlogit| < 0.5` gate aborted a 9-hour run on exactly 0.5000. Compare option probabilities and
+decisive argmax flips instead, then inject the bug the gate exists for (gather at the padded end
+instead of each row's last real token): it must fail loudly (here Δp 0.658 and 2/16 flips vs ≤ 0.022
+and 0 for the real code).
+
 ## Calibration & comparison
 
 **Do not adopt an upstream repo's headline metrics.** Re-derive on the *test* split with your own
@@ -102,3 +110,34 @@ temperature.
 
 **Time the real function before theorising about the cause.** Several plausible explanations for a
 slowdown were wrong; timing the actual scoring call on one real row gave the answer in one shot.
+
+**Check which attention backend your GPU actually gets before blaming the model size.** On this box
+(torch 2.13+rocm7.14, RDNA3/gfx1100) `flash_sdp_enabled()` and `mem_efficient_sdp_enabled()` both
+report `True`, yet forcing either one raises *"No available kernel. Aborting execution"* — only
+`SDPBackend.MATH` executes. Attention is then materialised in full, so activation memory is O(S²)
+and throughput collapses: a 149M encoder needed >5 GB at **8** rows × 512 tokens and managed 39
+pairs/s, while a 67M one ran ~7× faster on the same data. This is also why an earlier job peaked at
+15 GB and starved the compositor — it was not the batch size. Probe the backend with
+`sdpa_kernel(...)` on a tiny tensor before sizing any run, and treat gradient checkpointing as
+mandatory rather than an optimisation.
+
+**Cancelling a wrapper job does not necessarily stop the work.** Killing a bash job that runs
+`sudo podman exec <ctr> python train.py` kills the wrapper; the container's python can keep running
+unnoticed. A stale benchmark here kept burning CPU — and would have shared the GPU — next to the
+real training run for half an hour. After any cancel, verify inside the container
+(`podman exec <ctr> pgrep -fa <script>`) instead of assuming the work stopped.
+
+**"Non-finite loss" and "finite loss, NaN gradient" are different failures — check which one you
+have.** A training run on this stack died with `non-finite loss at step 43`, which reads like a bad
+row or a diverging LR. Instrumenting the step instead of guessing showed the loss was *finite* and
+only the **gradient** was NaN, from step 16 — a backward-pass problem, not a data one (a full audit
+of the corpus found no empty, duplicate or pathological options). The likely trigger is gradient
+checkpointing recomputation combined with the MATH-only attention backend on long sequences: the
+15-step probe that was stable used short rows and small batches. Check the gradient norm, not just
+the loss, before concluding anything about the data.
+
+**A GPU with no preemption needs a duty cycle to be shared.** With only the MATH sdpa backend,
+back-to-back kernels monopolise the compute queues and the operator's video stutters even though
+the job holds little memory. `--step-sleep` idles the device between steps so other clients get
+regular windows; it costs throughput but it is the difference between a usable and an unusable
+desktop.

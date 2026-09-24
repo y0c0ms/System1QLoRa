@@ -1,0 +1,40 @@
+{
+ "args": {
+  "base": "Qwen/Qwen3-0.6B",
+  "adapter": "",
+  "model": "",
+  "precision": "bf16",
+  "tag": "base_q06_zeroshot",
+  "datasets": [
+   "jevbench"
+  ],
+  "splits": [
+   "test"
+  ],
+  "orders": [
+   "orig",
+   "rev"
+  ],
+  "max_len": 2048,
+  "long_max_len": 8192,
+  "tok_budget": 16384,
+  "vram_cap_gb": 8.0,
+  "long_tok_budget": 8192,
+  "limit": 0,
+  "check_invariance": 0
+ },
+ "summary": {
+  "jevbench.test.orig": {
+   "n": 231,
+   "acc": 0.47619047619047616,
+   "truncated": 0,
+   "sec": 40.2
+  },
+  "jevbench.test.rev": {
+   "n": 231,
+   "acc": 0.5021645021645021,
+   "truncated": 0,
+   "sec": 39.4
+  }
+ }
+}

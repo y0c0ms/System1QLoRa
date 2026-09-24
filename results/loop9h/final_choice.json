@@ -1,0 +1,15 @@
+{
+ "rule": "winner = argmax mean dev accuracy over sni.val.orig, reflex.val.orig, kevsuite.val.orig",
+ "macro": {
+  "p3_m1": 0.6751237831487077
+ },
+ "winner": "p3_m1",
+ "ci_vs_p3_m1": {},
+ "per_set": {
+  "p3_m1": {
+   "sni.val.orig": 0.6420833333333333,
+   "reflex.val.orig": 0.5683333333333334,
+   "kevsuite.val.orig": 0.8149546827794562
+  }
+ }
+}

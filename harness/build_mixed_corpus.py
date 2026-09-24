@@ -32,6 +32,7 @@ import argparse
 import json
 import random
 from pathlib import Path
+from eval_decider import text_field  # canonical field rendering; see eval_decider.text_field
 
 ROOT = Path(__file__).resolve().parents[1]
 LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -43,7 +44,7 @@ def build_prompt(state, question, options):
     """Byte-identical to baseline_logprob.build_prompt."""
     opts = "\n".join("%s. %s" % (LETTERS[i], o) for i, o in enumerate(options))
     return ("State:\n%s\n\nQuestion:\n%s\n\nOptions:\n%s\n\nAnswer:"
-            % (state, question, opts))
+            % (text_field(state), text_field(question), opts))
 
 
 def make_variant(options, answer_index, drop_correct, rng):
@@ -101,7 +102,9 @@ def main():
     def emit(src, task, state, question, options, ai):
         out_rows.append({"source": src, "task": task,
                          "prompt": build_prompt(state, question, options),
-                         "completion": " " + LETTERS[ai]})
+                         "completion": " " + LETTERS[ai],
+                         "state": state, "question": question,
+                         "options": list(options), "answer_index": ai})
 
     for src in args.sources.split(","):
         rows = json.load(open(ROOT / "data" / src / "train.json"))
@@ -137,7 +140,12 @@ def main():
     fp = outdir / "train.jsonl"
     with open(fp, "w") as f:
         for r in out_rows:
-            f.write(json.dumps(r) + "\n")
+            f.write(json.dumps({k: r[k] for k in ("source", "task", "prompt", "completion")}) + "\n")
+    # parallel structured dump (same rows/order) for the pointer-head arm
+    with open(outdir / "train_structured.jsonl", "w") as f:
+        for r in out_rows:
+            f.write(json.dumps({k: r[k] for k in
+                    ("source", "task", "state", "question", "options", "answer_index")}) + "\n")
 
     manifest = {
         "n_rows": len(out_rows),

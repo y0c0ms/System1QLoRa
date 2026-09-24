@@ -30,6 +30,58 @@ the held-out NLI tasks are "pick which of 3 candidates is neutral", not single-p
 classification. Rebuilding NLI in that select-of-3 format (`harness/build_nli_select.py`) lifted
 `mnli_neutral` 0.16 → 0.88 on the 0.6B. See `docs/FINDINGS.md`.
 
+## JevBench public board — the same 231 items everyone else runs
+
+JevBench publishes a board over its 231 public items (the composite score also uses 303 held-out
+items nobody outside can run). We measured our models on those 231 items, in both option orders,
+and recomputed everything here rather than quoting anyone's headline:
+
+| system | all | easy | standard | hard | source |
+|---|---|---|---|---|---|
+| Jev 1.13.0 | 0.866 | 1.000 | 0.986 | 0.730 | board |
+| SemIf / OpenJev 4B | 0.810 | 1.000 | 0.986 | 0.613 | board |
+| **kev 0.6B** | **0.667** | 1.000 | 0.806 | 0.432 | board |
+| Dohnuts-0.1.0-0.8B | 0.658 | – | – | – | self-reported |
+| **ours — rebuilt 0.6B (bf16 r16)** | **0.632** (rev 0.675, perm-avg 0.667) | 1.000 | 0.750 | 0.396 | measured here |
+| ours — shipped 0.6B | 0.619 | 0.979 | 0.694 | 0.414 | measured here |
+| ours — untrained 0.6B | 0.476 | 0.854 | 0.431 | 0.342 | measured here |
+
+**We are behind kev 0.6B on the board's own metric and on every tier it publishes except easy.**
+Our permutation-averaged 0.667 happens to equal kev's number, but that is a different metric from
+the one the board reports — it is not a tie. The rebuild's gain over our own shipped model (+0.013,
+95% CI [−0.035, +0.061]) is **not statistically significant**; the one significant improvement is
+kevsuite (+0.111 [+0.084, +0.137]), which is in-distribution for the rebuilt corpus and therefore
+not evidence of transfer.
+
+Also measured, and the part that matters for "runs on anything": **a 378 MB 4-bit GGUF runs on CPU
+with no GPU and no network at 189 ms p50 per decision, matching the GPU model's JevBench accuracy
+exactly** (0.632 vs 0.632); Q8_0 at 610 MB costs 0.004 on the same items. Conditions (threads,
+loadavg, warm-up, one request at a time) ship with the numbers in `results/loop9h/deploy/`.
+
+## What the 2026-09-23 session changed
+
+Three results worth taking, all written up in `docs/FINDINGS.md`:
+
+1. **The 4-bit base was costing the 0.6B about 7 points — and it is a *training* effect.** Same
+   recipe on an NF4 base against bf16, same corpus, steps and seed: +0.070…+0.079 on three dev sets,
+   CIs excluding zero. Scoring the *shipped* adapter on a bf16 base changes nothing (0.602 vs 0.619),
+   so inference precision is not the lever. Anyone tuning quantization for scoring is tuning the
+   wrong end.
+2. **A 67M cross-encoder does not clear "half as decent".** DistilBERT on the same corpus at matched
+   exposure: **at chance on every JevBench tier** — 0.316 overall against 0.433 (half of Jev) and
+   against 0.476 for the *untrained* 0.6B. It is perfect on the one family where independent option
+   matching suffices (bfcl_irr, 396/396 against 0.836 for the 0.6B) and at chance where reasoning is
+   required. Capability here is **task-family-shaped, not topic-shaped**.
+3. **More adapter capacity hurt at this budget.** r64 against r16, everything else equal: worse on
+   every set but one, far outside the noise. It reads as an under-trained adapter (`lora_alpha = 2r`
+   also doubles the effective step size), not as a verdict on capacity.
+
+Two traps recorded while doing it, both in `docs/PITFALLS.md`: this ROCm build exposes **only the
+MATH attention backend** (flash and memory-efficient both report "no available kernel", so attention
+memory is O(S²) — that, not the batch size, was behind a 15 GB peak), and **"non-finite loss" is not
+the same failure as "finite loss, NaN gradient"** — the latter was gradient checkpointing on this
+stack, and checking the gradient norm rather than the loss is what identified it.
+
 ## The task
 
 A "System One" decision (the contract popularised by TypeSafe's closed **Jev**) is:

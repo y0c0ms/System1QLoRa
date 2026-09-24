@@ -1237,3 +1237,325 @@ Jev to 0.010), best abstention (beats Jev 0.95 vs 0.74), SNI tied. The only rema
 gap to Jev is SNI = NLI/entailment reasoning, which corpus augmentation across three
 versions could not touch. That is the next real lever (NLI-specific synthesis or a
 stronger base).
+
+---
+
+## 2026-09-23 — Regime screen: the 4-bit base costs the 0.6B ~7 points; r64 hurts at 500 steps
+
+Pre-registered screen (H1a quantization, H1b adapter capacity). One corpus
+(`data/mixed_final`, 38,450 rows), 500 steps = 0.31 epoch, seed 0, max_len 384,
+batch 8 x grad-accum 3, LR 2e-4 cosine. Only precision and LoRA rank differ. Dev
+splits only; the test splits were not read.
+
+| arm | macro | SNI val | reflex val | kevsuite val | bfcl val | bfcl_irr (abstention) |
+|---|---|---|---|---|---|---|
+| nf4 r16 (old practice, control) | 0.5275 | 0.552 | 0.427 | 0.604 | 0.975 | 0.950 |
+| **bf16 r16 (winner)** | **0.6005** | **0.630** | **0.497** | **0.674** | 0.975 | 0.850 |
+| bf16 r64 | 0.4311 | 0.481 | 0.445 | 0.367 | 0.508 | 0.925 |
+
+Paired bootstrap vs the winner (95% CI, 2000 resamples):
+
+| set | nf4 r16 | bf16 r64 |
+|---|---|---|
+| SNI val (n=4800) | -0.079 [-0.096, -0.062] | -0.149 [-0.170, -0.130] |
+| reflex val (n=600) | -0.070 [-0.112, -0.030] | -0.052 [-0.088, -0.012] |
+| kevsuite val (n=1324) | -0.070 [-0.099, -0.044] | -0.307 [-0.342, -0.275] |
+| bfcl val (n=120) | 0.000 [-0.025, +0.025] | -0.467 [-0.558, -0.375] |
+| bfcl_irr val (n=80) | +0.100 [+0.025, +0.175] | +0.075 [-0.025, +0.175] |
+
+**1. The 4-bit base costs about 7 points.** The shipped 0.6B (q06_final) was
+QLoRA-trained on an NF4 base. Training and scoring on a bf16 base instead is worth
++0.070 to +0.079 on three dev sets, CIs excluding zero, and is ~11% faster per step
+(1.98 -> 1.77 s/step at 384). The one exception runs the other way: abstention
+(bfcl_irr) drops 0.10 at n=80 — the regression to watch in the main run.
+
+**2. More adapter capacity hurt at this budget.** r64 at the same LR, steps and seed
+is worse on every set but one, far outside the noise (bfcl 0.508 vs 0.975; kevsuite
+-0.31). At 0.31 epoch the run is nowhere near capacity-limited, and `lora_alpha = 2r`
+doubles the effective step size when r goes 16 -> 64, so the likely reading is an
+under-trained larger adapter rather than "capacity is bad". That needs an equal-epoch
+re-test before it becomes a rule.
+
+**3. Bonus, not a controlled arm.** The stopped distillation checkpoint (nf4 r16,
+broadened corpus, 4B soft targets, KD alpha < 1) scores SNI 0.616 / reflex 0.515 /
+kevsuite 0.728 / bfcl 0.942 / bfcl_irr 0.738. It beats the winner on reflex and
+kevsuite, but the corpus differs and includes the kev public sources, so kevsuite is
+in-distribution for it and was not for the screen arms. Its abstention collapse (0.738
+vs 0.850) is the more interesting half.
+
+Caveats: one seed per arm; 500 steps = 0.31 epoch, so this ranks early training, and a
+regime that learns faster early can look better than it ends. The screen changes
+training and inference precision together; the final eval's `q06_final_bf16inf` run
+(shipped adapter scored on a bf16 base) separates them. The r64 arm resumed from a
+step-100 checkpoint — an interruption, not a design choice.
+
+Consequence: the main 0.6B run (2000 steps = 1.1 epochs, broadened corpus, option
+permutation p=0.5) uses **bf16 r16**.
+
+---
+
+## 2026-09-23 — The rebuilt 0.6B on the public board: better than ours, still behind kev
+
+Main run: bf16 r16, 2000 steps (1.1 epochs) on the broadened corpus
+(`data/distill`, 43,609 rows), max_len 1024, option permutation p=0.5, seed 0,
+2.24 s/step. Evaluated once, on test, both option orders, same 231 public JevBench
+items the board publishes.
+
+| system | all (orig) | rev | perm-avg | easy | standard | hard | ECE |
+|---|---|---|---|---|---|---|---|
+| Jev 1.13.0 (board) | 0.866 | - | - | 1.000 | 0.986 | 0.730 | - |
+| SemIf/OpenJev 4B (board) | 0.810 | - | - | 1.000 | 0.986 | 0.613 | - |
+| **kev 0.6B (board)** | **0.667** | - | - | 1.000 | **0.806** | **0.432** | - |
+| Dohnuts-0.1.0-0.8B (self-reported) | 0.658 | - | - | - | - | - | - |
+| **ours: p3_m1** | **0.632** | 0.675 | 0.667 | 1.000 | 0.750 | 0.396 | **0.041** |
+| ours: shipped q06_final | 0.619 | 0.619 | 0.632 | 0.979 | 0.694 | 0.414 | 0.110 |
+| ours: untrained base | 0.476 | 0.502 | 0.541 | 0.854 | 0.431 | 0.342 | 0.317 |
+
+**The rebuild worked, but it did not get us ahead of kev 0.6B.** Against our own
+shipped model: +0.013 original order, +0.035 permutation-averaged, +0.056 standard
+tier, and calibration roughly 2.7x better (ECE 0.041 vs 0.110). Against kev 0.6B we
+are behind on the board's own metric (0.632 vs 0.667) and behind on every tier it
+publishes except easy, where both saturate at 1.000: standard 0.750 vs 0.806, hard
+0.396 vs 0.432. Our permutation-averaged 0.667 equals kev's number, but that is a
+different metric from the one the board reports, so it is not a tie.
+
+Two findings that survive regardless of that ranking:
+
+**1. The 4-bit penalty is a training effect, not an inference one.** The shipped
+adapter scored on a bf16 base (`q06_final_bf16inf`) is 0.602/0.615/0.619 against
+0.619/0.619/0.632 on its nf4 base - no gain, and the hard tier is worse (0.369 vs
+0.414). So the +7 points from the regime screen came from training on a
+full-precision base, not from how the model is scored. Anyone tuning inference
+precision for this model is tuning the wrong end.
+
+**2. We lost abstention in the rebuild.** bfcl_irr test: 0.836 (p3_m1) vs 0.960
+(shipped, and 0.960 for bf16 inference too). The bf16 arm already showed this at
+screen time (-0.100 on bfcl_irr val); at 2000 steps it is -0.124 on test, outside
+the noise. Meanwhile kevsuite test rose 0.665 -> 0.776, but that set is
+in-distribution for the broadened corpus (it contains the kev public sources), so
+that gain is not transfer.
+
+**3. Order sensitivity costs us on the board's metric.** 0.632 original vs 0.675
+reversed, order agreement 0.87. The board reports a single order; the 4-point spread
+is letter bias that permutation training at p=0.5 did not remove.
+
+Where the next run should look, in order of expected value: (a) recover abstention
+without giving back the reasoning gains, (b) remove the order bias (permutation-
+averaged inference, or p=1.0 training), (c) only then more scale. Capacity at fixed
+steps was already shown to hurt, and the 0.8B arm was cancelled by the operator, so
+scale is not the next lever to pull.
+
+---
+
+## 2026-09-23 — Direction change: stop chasing the board, find the smallest useful model
+
+The rebuild above put us at 0.632 where kev 0.6B has 0.667, Dohnuts-0.8B 0.658 and Jev
+1.13 0.866 — behind on the board's metric and on every tier kev publishes. The
+operator's call, and it is the right one on this evidence: stop competing for best
+overall, and instead find the **smallest model that runs on essentially any hardware**
+and establish what it can and cannot do. The hypothesis to test was "capability is
+topic-dependent: trained on a topic it answers, not trained and it cannot."
+
+### What the literature says (and it splits the hypothesis in two)
+
+**Facts are topic-bound; skills are not.** What a small model can *answer* tracks
+topical exposure almost linearly — QA accuracy is a function of how many pretraining
+documents mention the entity ([Kandpal 2022](https://arxiv.org/abs/2211.08411)) — and
+knowledge never seen in pretraining is memorised but not extractable, giving 0% QA even
+after instruction fine-tuning ([Allen-Zhu & Li 2023](https://arxiv.org/abs/2309.14316)).
+Injecting new facts by fine-tuning is slow, brittle, and does not propagate to entailed
+queries ([Gekhman 2024](https://arxiv.org/abs/2405.05904),
+[Ovadia 2023](https://arxiv.org/abs/2312.05934),
+[MQuAKE](https://arxiv.org/abs/2305.14795)). But reasoning, format-following, refusal
+and calibration are topic-*general* and transfer to unseen task families even from small
+students ([Magister 2022](https://arxiv.org/abs/2212.08410),
+[R-Tuning](https://arxiv.org/abs/2311.09677), [LIMA](https://arxiv.org/abs/2305.11206)),
+and with retrieval a small model answers topics it was never trained on.
+
+Our own data already agreed: training on NLI/reflex/kevsuite moved the *unseen*
+JevBench standard tier 0.438 -> 0.785 (skill transfer), while hard-tier multi-hop and
+long-policy sat at ~0.3 whatever we trained on. Design rule: **teach skills, retrieve
+facts.**
+
+**The floor is training budget, not parameter count.** Pythia-70M through Pythia-1B all
+sit at or below the 25% chance line on ARC-Challenge (18.1 -> 24.4), and OLMo-BitNet-1B
+scores MMLU 25.47 — yet Qwen3-0.6B-Base scores MMLU 52.81 and Qwen2.5-0.5B-Base 47.50 at
+the same size. SmolLM2 needed 6T tokens to clear 25%. No local fine-tuning repairs a
+weakly pretrained base, so the base choice is the decision that matters.
+
+**Distillation is not the shortcut.** Long chain-of-thought distillation from strong
+teachers is *negative* for students <=3B (Qwen2.5-0.5B 19.5 -> 14.8; 1.5B 34.2 -> 27.0)
+and only turns positive at 7B. Independently vindicates killing the 4B -> 0.6B
+distillation run earlier the same day.
+
+**Where the floor is depends on the question.** Narrow classification survives far below
+100M — DeBERTaV3-xsmall MNLI 88.1/88.3, TinyBERT-4L (14.5M) GLUE 70.2, DistilBERT (66M)
+GLUE 77.0, ModernBERT-base (149M) GLUE 88.4, beating BERT-large. Knowledge-bearing
+multiple choice does not: on our own 231 items, ~400M encoders score 0.584 and 0.524
+against 0.632 for the 0.6B decoder. The encoder/decoder ranking *inverts by task*.
+
+**Narrow fine-tuning has an out-of-distribution cost.** Full fine-tuning on narrow data
+is +2% in-domain but -7% OOD versus linear probing
+([Kumar 2022](https://arxiv.org/abs/2202.10054)); LoRA underperforms in-domain but better
+preserves OOD ([Biderman 2024](https://arxiv.org/abs/2405.09673)); and narrow tuning can
+shift behaviour far outside the topic entirely
+([emergent misalignment, ICML 2025](https://arxiv.org/abs/2502.17424)). That is the shape
+of our own abstention damage (0.960 -> 0.836).
+
+### Deployment floor, measured and sourced
+
+| stack | footprint | notes |
+|---|---|---|
+| sub-200M encoders in production | 33-150M | bge-small 33M, DistilBERT 66M, Prompt Guard 86M, ModernBERT-base 149M |
+| **our 0.6B decoder at Q4_K_M** | **378 MB** | 189 ms p50 on 6 CPU threads, JevBench parity with the GPU model |
+| 0.5B at Q2_K | 333-339 MB | 31 tok/s decode on a Raspberry Pi 5 |
+| BitNet b1.58 2B | 1.19 GB | native 1.58-bit, *not* smaller on disk, far cheaper per joule |
+
+Three traps: **vocab tax** (Gemma-3-270M is 62.6% embedding, so its "Q2_K" is only 6.3%
+smaller than Q4_K_M — and the same table applies to DeBERTa-v3-xsmall's 128k vocab,
+70M total vs the 22M the papers quote); **1-2 bit PTQ is catastrophic** (IQ1_S is
++832-914% perplexity on an 8B) though 2-bit costs only +11.8% on a 0.5B; and **QAT beats
+PTQ** decisively — native 1.58-bit loses ~0.7 points where PTQ to 4 bits loses 3.6-4.6.
+
+### The experiment this sets up
+
+Train a **67M encoder specialist** (DistilBERT) on the *identical* corpus as the 0.6B,
+score it through the identical artifact contract so `analyze_decider` compares them with
+the same code and CIs, and measure footprint and CPU latency. The yardstick: "half as
+decent" = half of Jev 1.13's 0.866 = **0.433** on the same 231 public items, against our
+0.6B's 0.632.
+
+A 512-token encoder is a fair test on kevsuite (0% truncated), bfcl/oadk (0-1%) and sni
+(1%), and is context-limited rather than capacity-limited on reflex (14%) and JevBench
+(22%) — those two are reported as lower bounds.
+
+---
+
+## 2026-09-23 — Negative result: the dict-field rendering was NOT costing accuracy
+
+**Hypothesis.** 35 of the 231 JevBench items carry `state` as a dict, and 58/68 kevsuite
+val/test items carry `question` as a dict. The prompt builder rendered those with an
+f-string, i.e. as a Python repr (`{'policy': '...'}`) instead of the JSON that the
+corpus's own string fields contain. Those rows score much worse — jevbench 0.571 vs
+0.643 on the string rows, kevsuite test 0.574 vs 0.787 — which looked like a rendering
+artifact worth about a point overall.
+
+**Test.** Re-scored p3_m1 on both sets under both renderings (tag `p3_m1_norm`) and
+compared per-row predictions with a paired bootstrap:
+
+| subset | n | delta | 95% CI | verdict |
+|---|---|---|---|---|
+| jevbench.test dict-state | 35 | -0.057 | [-0.143, +0.000] | noise |
+| kevsuite.test dict-question | 68 | +0.000 | [-0.044, +0.044] | noise |
+| kevsuite.val dict-question | 58 | -0.034 | [-0.086, +0.000] | noise |
+
+Predictions were identical on 99.1% (jevbench) and 99.8% (kevsuite test) of rows.
+
+**Conclusion: the hypothesis is refuted.** Dict-typed rows are simply harder items, not
+victims of the prompt format — the 21-point kevsuite test gap is unchanged under both
+renderings. Effect on the headline number is inside the noise either way:
+jevbench.test 0.632 -> 0.623 original order, 0.675 -> 0.680 reversed, perm-avg 0.654 ->
+0.652.
+
+The change was kept anyway, for reasons that are not accuracy: the corpus's own fields
+are JSON, so rendering a dict as JSON is the faithful choice rather than letting a Python
+repr leak into a prompt; and the builder had been copy-pasted into **12 files**, which is
+why the inconsistency existed at all. `eval_decider.text_field` is now the single
+definition and every scorer, trainer and auxiliary script routes through it, so train and
+eval cannot drift apart. Both numbers are stated here because the choice is
+measurement-neutral.
+
+**Worth keeping for anyone analysing this benchmark: dict-typed rows are harder rows.**
+Whoever checks the benchmark's difficulty distribution should not read the field type as a
+formatting bug (as we did) without re-scoring both ways first.
+
+### Why the encoder ran 20x slower than its own benchmark predicted
+
+The first DistilBERT run managed **13 pairs/s** (2.38 s/step, ~11 h for 3 epochs) where a
+benchmark of the same code on the same model had reported ~250. The explanation I reached
+for first was **wrong**, and it is worth recording because it looked plausible:
+
+- **Not** an unrepresentative benchmark sample. The first 400 and first 4000 corpus rows
+  have the same length distribution as the whole corpus (mean 716 vs 717 characters).
+- **Within-batch length variance.** A random 8-row batch contains a long row almost every
+  time, so it pads to ~362 tokens when the median row is 132. Length-sorted bucketing pads
+  to ~161: 56% less padding, and with the MATH-only attention backend that padding is
+  quadratic, so ~5x less attention work.
+- Plus a stale benchmark process, left alive by a cancelled wrapper job, competing for CPU
+  with the data path.
+
+Length bucketing plus a padded-token budget took the same model and data from **13 to 158
+pairs/s** — 17.3 min per epoch, 2.9 GB peak, 21.3 rows per step.
+
+### Encoder deployment floor (measured; holds regardless of how the fine-tune lands)
+
+Inference cost is fixed by architecture, so these numbers do not depend on training.
+Conditions, per rule 4: Ryzen 5 7600X (12 threads), no GPU, loadavg 10.8 rising to 16.5
+during the measurement, with the operator's video player alone at 48% CPU — a **loaded**
+machine, not a clean room. Re-measure idle before quoting these as best-case.
+
+- **66,954,241 parameters**, of which 23,440,896 (**35%**) are the embedding table — the
+  same vocab tax the research flagged for Gemma-3-270M, milder here.
+- On disk: **67 MB int8, 134 MB fp16, 268 MB fp32**, against 378 MB for the 0.6B at
+  Q4_K_M. This is the encoder's real win: 3-6x less memory.
+- **Single-threaded inference is ~16x faster than 8 threads** for one 188-token pair:
+  85 ms median at 1 thread against 1367 ms at 8, monotonically worse at every step
+  between. The per-op work is too small to parallelise — the threads spin-wait and steal
+  CPU from each other and from the desktop. Use one thread for single-sample encoder
+  inference on this box. Same shape as the existing finding that one worker beat two for
+  the MoE model.
+- A cross-encoder pays the context cost **once per option**: ~290 ms for a 3.77-option
+  decision against 189 ms for the 0.6B decoder, which reads the context once and emits
+  every option's score in one pass. So the encoder wins on memory, not latency — except
+  at k=2, where two pairs (~170 ms) should beat the decoder.
+- DistilBERT **hard-fails above 512 tokens** rather than truncating (`The size of tensor a
+  (1173) must match the size of tensor b (512)`), so it can only ever see 512 tokens.
+  That is precisely the 22% truncation measured on JevBench's long items, and it makes
+  context length, not parameters, the binding constraint on this architecture.
+
+---
+
+## 2026-09-23 — The 67M cross-encoder fails the premise: at chance on JevBench
+
+DistilBERT (67M) trained on the identical corpus for 1 epoch (2,725 steps, matched
+exposure against the 0.6B decoder's 1.1 epochs), then scored through the identical
+artifact contract so `analyze_decider` compares them with the same CIs.
+
+| set (test) | encoder 67M | decoder 596M | delta [95% CI] |
+|---|---|---|---|
+| **JevBench public (231)** | **0.316** | 0.632 | -0.316 [-0.398, -0.234] |
+| kevsuite | 0.437 | 0.776 | -0.339 [-0.373, -0.304] |
+| bfcl | 0.481 | 0.907 | -0.426 [-0.481, -0.368] |
+| oadk | 0.375 | 0.812 | -0.438 [-0.750, -0.062] |
+| sni | 0.461 | 0.628 | -0.168 [-0.196, -0.137] |
+| reflex | 0.397 | 0.562 | -0.165 [-0.213, -0.113] |
+| **bfcl_irr** | **1.000** | 0.836 | **+0.164** |
+
+**On JevBench the encoder is at chance on every tier**: easy 0.333 against 0.284 chance,
+standard 0.347 against 0.311, hard 0.288 against 0.336 — below chance. Intelligence proxy
+3.4 against the decoder's 48.0. It does not clear the yardstick either: 0.316 against 0.433
+(half of Jev 1.13's 0.866) and against **0.476 for the untrained 0.6B**.
+
+So the premise fails at this size and formulation. This experiment does **not** separate the
+three candidate causes:
+
+1. **Formulation.** A cross-encoder scores each option independently and never compares
+   them; the decoder reads the whole option list in one prompt. bfcl_irr is the one family
+   where independent matching suffices — and there the encoder is perfect.
+2. **Size.** The literature's ~400M encoders reach 0.52-0.58 on these items (Laya 0.584,
+   open-jev-deberta-v3-large 0.524): better than our 0.316, still below the 0.6B decoder.
+3. **Context.** DistilBERT cannot exceed 512 tokens; 52/231 JevBench items (22%) and
+   87/600 reflex val rows (15%) were truncated.
+
+One property worth keeping: **a cross-encoder is exactly order-invariant** — order agreement
+1.00 on every set, against 0.84-0.93 for the decoder, because reversing the option order
+changes no option's score. It removes the ~4-point order bias the decoder pays, for free.
+
+bfcl_irr deserves its own note: the encoder is perfect (396/396) where the decoder manages
+0.836, and it is not a degenerate solution — always-answer-index-1 scores 0.664, because the
+literal "None of the above" sits at index 1 in 66% of rows, and the encoder also gets the
+other 34%. It learned genuine query-to-option matching: precisely the skill a cross-encoder
+should be good at, and precisely the skill JevBench does not reward.
+
+Next, if we continue: train a small **decoder** (135-500M) on the same corpus, which is the
+single change that separates formulation from size — the confound this run cannot resolve.

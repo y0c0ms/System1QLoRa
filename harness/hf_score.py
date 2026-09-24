@@ -16,6 +16,7 @@ from pathlib import Path
 import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from eval_decider import text_field  # canonical field rendering; see eval_decider.text_field
 
 ROOT = Path(__file__).resolve().parents[1]
 LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -24,7 +25,7 @@ LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 def build_prompt(row):
     opts = "\n".join("%s. %s" % (LETTERS[i], o) for i, o in enumerate(row["options"]))
     return ("State:\n%s\n\nQuestion:\n%s\n\nOptions:\n%s\n\nAnswer:"
-            % (row["state"], row["question"], opts))
+            % (text_field(row["state"]), text_field(row["question"]), opts))
 
 
 def fit_temperature(logit_sets, answers):

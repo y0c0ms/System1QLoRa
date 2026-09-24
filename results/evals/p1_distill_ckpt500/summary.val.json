@@ -1,0 +1,61 @@
+{
+ "args": {
+  "base": "Qwen/Qwen3-0.6B",
+  "adapter": "results/q06_distill_lora_ckpt500",
+  "model": "",
+  "precision": "nf4",
+  "tag": "p1_distill_ckpt500",
+  "datasets": [
+   "sni",
+   "reflex",
+   "kevsuite",
+   "bfcl",
+   "bfcl_irr"
+  ],
+  "splits": [
+   "val"
+  ],
+  "orders": [
+   "orig"
+  ],
+  "max_len": 1024,
+  "long_max_len": 8192,
+  "tok_budget": 16384,
+  "vram_cap_gb": 8.0,
+  "long_tok_budget": 8192,
+  "limit": 0,
+  "check_invariance": 0
+ },
+ "summary": {
+  "sni.val.orig": {
+   "n": 4800,
+   "acc": 0.615625,
+   "truncated": 6,
+   "sec": 80.3
+  },
+  "reflex.val.orig": {
+   "n": 600,
+   "acc": 0.515,
+   "truncated": 32,
+   "sec": 21.8
+  },
+  "kevsuite.val.orig": {
+   "n": 1324,
+   "acc": 0.7280966767371602,
+   "truncated": 0,
+   "sec": 18.6
+  },
+  "bfcl.val.orig": {
+   "n": 120,
+   "acc": 0.9416666666666667,
+   "truncated": 0,
+   "sec": 1.1
+  },
+  "bfcl_irr.val.orig": {
+   "n": 80,
+   "acc": 0.7375,
+   "truncated": 0,
+   "sec": 1.0
+  }
+ }
+}

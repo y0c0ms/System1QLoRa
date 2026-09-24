@@ -16,6 +16,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from eval_decider import text_field  # canonical field rendering; see eval_decider.text_field
 
 BASE = "Qwen/Qwen3-4B-Instruct-2507"
 ADAPTER = "results/jevlike4b_lora"
@@ -40,7 +41,7 @@ print("model ready", flush=True)
 def build_prompt(state, question, options):
     opts = "\n".join("%s. %s" % (LETTERS[i], o) for i, o in enumerate(options))
     return ("State:\n%s\n\nQuestion:\n%s\n\nOptions:\n%s\n\nAnswer:"
-            % (state, question, opts))
+            % (text_field(state), text_field(question), opts))
 
 
 @torch.no_grad()

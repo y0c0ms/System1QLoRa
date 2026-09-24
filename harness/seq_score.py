@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 #!/usr/bin/env python3
 """Exact sequence scoring: logP(option_text | prompt), by teacher forcing.
 
@@ -125,7 +127,7 @@ class Client:
 
 def build_prefix(row):
     # No option list: the options are what we are scoring, not context.
-    return "State:\n%s\n\nQuestion:\n%s\n\nAnswer:" % (row["state"], row["question"])
+    return "State:\n%s\n\nQuestion:\n%s\n\nAnswer:" % (text_field(row["state"]), text_field(row["question"]))
 
 
 def subset_options(row, max_options, seed=0):

@@ -1,0 +1,60 @@
+{
+ "gguf": "results/loop9h/deploy/p3_m1/model-q8_0.gguf",
+ "threads": 6,
+ "n_probs": 50,
+ "cpu": "AMD Ryzen 5 7600X 6-Core Processor",
+ "loadavg_start": [
+  "2.82",
+  "2.60",
+  "1.62"
+ ],
+ "sets": {
+  "jevbench:test:231": {
+   "n": 231,
+   "missing_letters": 7,
+   "acc_cpu_over_scored": 0.6473214285714286,
+   "acc_cpu_missing_as_wrong": 0.6277056277056277,
+   "gpu_agreement": 0.9732142857142857,
+   "compared": 224,
+   "excluded_gpu_truncated": 0,
+   "latency_s_p50": 0.23091168199971435,
+   "latency_s_p90": 6.452732055000524,
+   "latency_s_mean": 1.625579154690348,
+   "prompt_tokens_p50": 110,
+   "prompt_tokens_p90": 2345
+  },
+  "sni:val:300": {
+   "n": 300,
+   "missing_letters": 0,
+   "acc_cpu_over_scored": 0.5166666666666667,
+   "acc_cpu_missing_as_wrong": 0.5166666666666667,
+   "gpu_agreement": 0.98,
+   "compared": 300,
+   "excluded_gpu_truncated": 0,
+   "latency_s_p50": 0.3603720360006264,
+   "latency_s_p90": 0.43337628100198344,
+   "latency_s_mean": 0.34331436790851483,
+   "prompt_tokens_p50": 192,
+   "prompt_tokens_p90": 230
+  },
+  "reflex:val:150": {
+   "n": 150,
+   "missing_letters": 8,
+   "acc_cpu_over_scored": 0.5704225352112676,
+   "acc_cpu_missing_as_wrong": 0.54,
+   "gpu_agreement": 0.9130434782608695,
+   "compared": 138,
+   "excluded_gpu_truncated": 4,
+   "latency_s_p50": 0.22830041900306242,
+   "latency_s_p90": 0.7789320589981799,
+   "latency_s_mean": 0.412102463330942,
+   "prompt_tokens_p50": 114,
+   "prompt_tokens_p90": 400
+  }
+ },
+ "loadavg_end": [
+  "12.81",
+  "11.79",
+  "6.94"
+ ]
+}

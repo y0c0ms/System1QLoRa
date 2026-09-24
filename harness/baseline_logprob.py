@@ -33,6 +33,7 @@ import time
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
+from eval_decider import text_field  # canonical field rendering; see eval_decider.text_field
 
 BASE = os.environ.get("LLAMA_SERVER_URL", "http://localhost:11435")
 LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -44,7 +45,7 @@ BASE_URL = [BASE]
 def build_prompt(row):
     opts = "\n".join("%s. %s" % (LETTERS[i], o) for i, o in enumerate(row["options"]))
     return ("State:\n%s\n\nQuestion:\n%s\n\nOptions:\n%s\n\nAnswer:"
-            % (row["state"], row["question"], opts))
+            % (text_field(row["state"]), text_field(row["question"]), opts))
 
 
 def score_row_completion(row, model, top_n, base, timeout=300):
