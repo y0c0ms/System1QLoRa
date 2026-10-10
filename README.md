@@ -1,13 +1,32 @@
 # system-one-bench
 
-Methodology and tooling for **measuring and building open "System One" decision models** —
-models that take unstructured state plus a per-request question and option set, and return one
-calibrated choice in a single forward pass, with no text generation.
+Benchmarks, scoring protocol, and QLoRA recipes for building and measuring fast single-pass "System One" decision models.
+
+## Features
+
+- **Single forward pass scoring**: reads the next-token log-probability of each option letter and softmaxes over the options present (`harness/hf_score.py`, `harness/baseline_logprob.py`).
+- **Temperature calibration** fit on the validation split and applied unchanged to test, reporting accuracy, ECE and Brier (`harness/jevlike_cal.py`, `harness/analyze_decider.py`).
+- **Benchmark builders** for SNI (held-out predicates), reflex (math + code), BFCL (tool selection) and JevBench, all in one `{state, question, options, answer_index}` schema (`harness/build_*.py`).
+- **4-bit QLoRA training** with completion-only loss (`harness/qlora_train.py`).
+- **Serving and CPU deployment**: a stdlib HTTP scorer (`harness/serve.py`), LoRA merge to bf16 for llama.cpp (`harness/loop9h/merge_adapter.py`), and CPU scoring from GGUF (`harness/loop9h/cpu_score.py`).
+- **Results dashboard** built with Astro in `web/`.
+
+## Run it
+
+```bash
+pip install -r requirements.txt        # training/eval also need a GPU torch build (see Reproduce)
+python harness/build_reflex.py         # MATH + code-defect from the Hugging Face Hub -> data/ (gitignored)
+python harness/build_bfcl.py           # llamastack/bfcl_v3 from the Hub -> data/ (gitignored)
+```
+
+To score a decision with the published adapters, use the usage snippet in
+[`hf_card/README.md`](hf_card/README.md) (`yocoms/system1-qlora`, subfolder `06b` or `4b`). The full
+pipeline (SNI needs a clone of `natural-instructions`, then training and eval) is under Reproduce.
 
 This repository is written to be **reproduced and reused**, not to advertise a result. If you are
 researching fast option-scoring models, calibration, or held-out generality, the parts worth
 copying are the **benchmark construction**, the **letter-logprob scoring + calibration protocol**,
-and the **recorded pitfalls** — the training recipe is just one point in that design space.
+and the **recorded pitfalls**. The training recipe is just one point in that design space.
 
 ---
 
